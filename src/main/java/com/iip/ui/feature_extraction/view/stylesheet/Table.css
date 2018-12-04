@@ -1,0 +1,53 @@
+.table-view:focused {
+    -fx-background-color: #DDDDDD;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0, 0, 0;
+    -fx-padding: 1;
+}
+
+.table-row-cell:focused {
+    -fx-background-color: #48CFAD;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.table-view .scroll-bar:horizontal .increment-arrow,
+.table-view .scroll-bar:horizontal .decrement-arrow,
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}
+
+.table-view .scroll-bar:vertical .increment-arrow,
+.table-view .scroll-bar:vertical .decrement-arrow,
+.table-view .scroll-bar:vertical .increment-button,
+.table-view .scroll-bar:vertical .decrement-button {
+    -fx-padding:0;
+}
+
+.table-view{
+    -fx-background-color: transparent;
+}
+
+.table-view:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: -1.4, 0, 1;
+    -fx-background-radius: 1.4, 0, 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: #37BC9B;
+}
+
+.table-view .column-header-background .label {
+-fx-text-fill: white;
+-fx-font-weight: normal;
+-fx-font-size: 13px;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: white;
+}
+
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}

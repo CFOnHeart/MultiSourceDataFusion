@@ -1,0 +1,12 @@
+.title{
+    -fx-font-weight: lighter;
+    -fx-font-size: 13px;
+    -fx-text-fill: #000000;
+}
+
+.subtitle{
+    -fx-font-weight: lighter;
+    -fx-font-size: 10px;
+    -fx-text-fill: #000000;
+}
+
