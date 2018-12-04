@@ -1,4 +1,4 @@
-package com.iip.ui.controller;
+package com.iip.ui.space_time.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
