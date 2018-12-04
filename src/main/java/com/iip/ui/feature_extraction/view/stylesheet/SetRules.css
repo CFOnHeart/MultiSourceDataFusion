@@ -1,0 +1,22 @@
+.add-rules-button{
+
+    -fx-background-color: transparent;
+    -fx-text-fill: #37BC9B;
+}
+
+.rules-button{
+
+    -fx-background-color: #37BC9B;
+    -fx-text-fill: #FFFFFF;
+}
+
+.text-field {
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-background-color: transparent;
+}
+
+.menu-item:focused {
+    -fx-background-color: #D8D8D8;
+}

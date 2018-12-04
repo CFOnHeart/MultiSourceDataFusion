@@ -1,0 +1,47 @@
+.list-view{
+    -fx-background-color: transparent;
+}
+.list-view:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: -1.4, 0, 1;
+    -fx-background-radius: 1.4, 0, 0;
+}
+
+.list-view:focused .list-cell:focused{
+    -fx-background-color:  #DDDDDD;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.list-cell:selected {
+    -fx-background-color:  #DDDDDD;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.list-cell {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ListCellSkin";
+    -fx-background-color: transparent;
+    -fx-padding: 0.25em;
+    -fx-text-fill: -fx-text-inner-color;
+    -fx-opacity: 1;
+}
+.list-cell:odd {
+    -fx-background-color: transparent;
+}
+.list-cell:filled:hover {
+    -fx-background-color:  #DDDDDD;
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+.list-view .scroll-bar:horizontal .increment-arrow,
+.list-view .scroll-bar:horizontal .decrement-arrow,
+.list-view .scroll-bar:horizontal .increment-button,
+.list-view .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}
+
+.list-view .scroll-bar:vertical .increment-arrow,
+.list-view .scroll-bar:vertical .decrement-arrow,
+.list-view .scroll-bar:vertical .increment-button,
+.list-view .scroll-bar:vertical .decrement-button {
+    -fx-padding:0;
+}
