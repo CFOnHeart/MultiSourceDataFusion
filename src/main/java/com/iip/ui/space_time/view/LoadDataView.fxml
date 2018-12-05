@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.iip.ui.space_time.controller.LoadDataViewController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <ListView fx:id="LVRawDataListView" layoutX="14.0" layoutY="50.0" prefHeight="270.0" prefWidth="972.0" />
+        <Separator layoutX="14.0" layoutY="346.0" prefWidth="972.0" />
+        <ListView fx:id="LVHandledDataListView" layoutX="14.0" layoutY="371.0" prefHeight="314.9998779296875" prefWidth="972.0" />
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="Load" />
+        <Button layoutX="901.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleDataClicked" text="Transfer" />
+        <Label layoutX="450.0" layoutY="21.0" prefWidth="97.0" text="database: d1" />
+    </children>
+</AnchorPane>
