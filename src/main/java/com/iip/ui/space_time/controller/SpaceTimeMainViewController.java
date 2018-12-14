@@ -43,7 +43,7 @@ class MenuModule{
     }
 }
 
-public class SpaceTimeMainViewController implements Initializable{
+public class SpaceTimeMainViewController extends RootController implements Initializable{
     @FXML
     private Label LblMainTitle;
     @FXML
@@ -52,6 +52,8 @@ public class SpaceTimeMainViewController implements Initializable{
     private AnchorPane APParticiple;
     @FXML
     private AnchorPane APEntity;
+    @FXML
+    private AnchorPane APSpaceTime;
     @FXML
     private AnchorPane APSetting;
     @FXML
@@ -80,6 +82,12 @@ public class SpaceTimeMainViewController implements Initializable{
     private void menuButtonClicked(MouseEvent mouseEvent){
         mouseEvent.consume();
         AnchorPane selectedMenuPane = (AnchorPane) mouseEvent.getTarget();
+
+        changeMenuView(selectedMenuPane);
+
+    }
+
+    public void changeMenuView(AnchorPane selectedMenuPane){
         if (currentMenuPane == selectedMenuPane) return;
 
         if (currentMenuPane != null){
@@ -107,8 +115,11 @@ public class SpaceTimeMainViewController implements Initializable{
                 break;
             }
         }
+    }
 
-
+    public void presentLoginView(){
+        AnchorPane selectedMenuPane = APLoadData;
+        changeMenuView(selectedMenuPane);
     }
 
     @Override
@@ -121,8 +132,10 @@ public class SpaceTimeMainViewController implements Initializable{
         menuModules.add(new MenuModule(APParticiple, "../view/ParticipleView.fxml", "Participle"));
         // 实体界面
         menuModules.add(new MenuModule(APEntity, "../view/EntityView.fxml", "Entity"));
+        // 时空性界面
+        menuModules.add(new MenuModule(APSpaceTime, "../view/SpaceTimeView.fxml", "Space Time"));
         // 设置界面
         menuModules.add(new MenuModule(APSetting, "../view/SettingView.fxml", "Setting"));
-
     }
+
 }
