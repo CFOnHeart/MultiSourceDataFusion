@@ -29,16 +29,14 @@ public class LoadDataViewController implements Initializable{
     private ObservableList<String> rawDataList = FXCollections.observableArrayList();
     private ObservableList<String> handledDataList = FXCollections.observableArrayList();
 
-    private String [] tmpData = {"hhh", "hhhh", "hhhhhh"};
 
     @FXML
-    private void loadDataClicked(MouseEvent mouseEvent){
-//        rawDataList.addAll(tmpData);
-//        LVRawDataListView.setItems(rawDataList);
+    private void loadDataByFileClicked(MouseEvent mouseEvent){
         // 根据文件选择器选取文件加载要读入的数据
         Stage stage = (Stage) LVRawDataListView.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(stage);
+        if(file == null) return;
         // 从获取到的文件中读入文本数据，以行为单位
         List<String> tmpData = new ArrayList<>();
         BufferedReader reader = null;
@@ -53,7 +51,7 @@ public class LoadDataViewController implements Initializable{
             }
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         } finally {
             if (reader != null) {
                 try {
@@ -62,13 +60,28 @@ public class LoadDataViewController implements Initializable{
                 }
             }
         }
+        rawDataList.clear();
         rawDataList.addAll(tmpData);
         LVRawDataListView.setItems(rawDataList);
     }
     @FXML
-    private void handleDataClicked(MouseEvent mouseEvent){
-
+    private void loadDataByMysqlClicked(MouseEvent mouseEvent){
+        // todo
     }
+    @FXML
+    private void replaceDataClicked(MouseEvent mouseEvent){
+        handledDataList.clear();
+        for(String v: rawDataList)
+            handledDataList.add(v);
+        LVHandledDataListView.setItems(handledDataList);
+    }
+    @FXML
+    private void appendDataClicked(MouseEvent mouseEvent){
+        for(String v: rawDataList)
+            handledDataList.add(v);
+        LVHandledDataListView.setItems(handledDataList);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources){
 
