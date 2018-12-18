@@ -33,27 +33,19 @@ public class ParticipleViewController extends RootController implements Initiali
     private TextField TFHintLoad;
     @FXML
     private Button BtnHintLoad;
-
     @FXML
     private TabPane TPParticiple;
 
 
-    private void hintLoadClicked(MouseEvent event){
-//        SpaceTimeMainViewController.LblMainTitle.setText("Load Data");
-//        SpaceTimeMainViewController.APLoadData.getStylesheets().clear();
-//        SpaceTimeMainViewController.APLoadData.getStylesheets().add("menuButtonSelected");
-//        try {
-//            FXMLLoader loader = new FXMLLoader();
-//            loader.setLocation(SpaceTimeMainViewController.class.getResource("../view/LoadDataView.fxml"));
-//            AnchorPane connectionConfigPane = loader.load();
-//            connectionConfigPane.setPrefSize(SpaceTimeMainViewController.BPMainViewPane.getWidth()-60, SpaceTimeMainViewController.BPMainViewPane.getHeight()-60);
-//            SpaceTimeMainViewController.BPMainViewPane.setCenter(connectionConfigPane);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        SpaceTimeMainViewController.currentMenuPane = SpaceTimeMainViewController.APLoadData;
-    }
-
+//    @FXML
+//    public void participleAllClicked(MouseEvent event){
+//        System.out.println("here");
+////        System.out.println( "Here debug: "+getTPParticiple().getSelectionModel().getSelectedIndex() );
+//    }
+//    @FXML
+//    public void participleSelectClicked(MouseEvent event){
+//        System.out.println("here");
+//    }
 
     public Tab generateNewTab(String id, String text){
         Tab tab = new Tab();
@@ -85,7 +77,8 @@ public class ParticipleViewController extends RootController implements Initiali
             BtnHintLoad.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    SpaceTimeMainViewController controller = (SpaceTimeMainViewController)Context.controllers.get(SpaceTimeMainViewController.class.getSimpleName());
+                    SpaceTimeMainViewController controller =
+                            (SpaceTimeMainViewController)Context.controllers.get(SpaceTimeMainViewController.class.getSimpleName());
                     controller.presentLoginView();
                 }
             });
@@ -95,7 +88,7 @@ public class ParticipleViewController extends RootController implements Initiali
         Tab tab1 = generateNewTab("Tab1", "Method1");
         if(tab1 != null) TPParticiple.getTabs().add(tab1);
         Tab tab2 = generateNewTab("Tab2", "Method2");
-        if(tab2 != null) TPParticiple.getTabs().add(tab1);
+        if(tab2 != null) TPParticiple.getTabs().add(tab2);
     }
 
     @Override
@@ -103,4 +96,6 @@ public class ParticipleViewController extends RootController implements Initiali
         System.out.println("In participle initialize");
         init();
     }
+
+    public TabPane getTPParticiple(){ return TPParticiple; }
 }

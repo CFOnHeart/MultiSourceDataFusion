@@ -24,12 +24,12 @@
         </TableView>
     </center>
     <bottom>
-        <HBox>
-            <Button text="对全部文本分词" textAlignment="CENTER">
+        <HBox AnchorPane.topAnchor="500.0">
+            <Button onAction="#participleAllClicked" text="对全部文本分词" textAlignment="CENTER">
                 <HBox.margin>
                     <Insets left="20.0" top="5.0" />
                 </HBox.margin></Button>
-            <Button text="对指定文本分词" textAlignment="CENTER">
+            <Button onAction="#participleSelectClicked" text="对指定文本分词" textAlignment="CENTER">
                 <HBox.margin>
                     <Insets left="20.0" top="5.0" />
                 </HBox.margin></Button>

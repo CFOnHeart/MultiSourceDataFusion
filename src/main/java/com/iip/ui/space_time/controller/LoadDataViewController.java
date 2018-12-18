@@ -1,5 +1,6 @@
 package com.iip.ui.space_time.controller;
 
+import com.iip.data.participle.SingleDocParticiple;
 import com.iip.data.space_time.SpaceTimeData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -72,12 +73,14 @@ public class LoadDataViewController extends RootController implements Initializa
         for(String v: SpaceTimeData.rawDataList)
             SpaceTimeData.handledDataList.add(v);
         LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
+        synSpaceTimeData();
     }
     @FXML
     private void appendDataClicked(MouseEvent mouseEvent){
         for(String v: SpaceTimeData.rawDataList)
             SpaceTimeData.handledDataList.add(v);
         LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
+        synSpaceTimeData();
     }
 
     @Override
@@ -89,6 +92,16 @@ public class LoadDataViewController extends RootController implements Initializa
         LVRawDataListView.setItems(SpaceTimeData.handledDataList);
         LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
         init();
+    }
+
+    public void synSpaceTimeData(){
+        SpaceTimeData.participleItems.clear();
+        for (int i=0 ; i<SpaceTimeData.handledDataList.size() ; i++){
+            SingleDocParticiple item = new SingleDocParticiple();
+            item.setId(i);
+            item.setText(SpaceTimeData.handledDataList.get(i));
+            SpaceTimeData.participleItems.add(item);
+        }
     }
 
     /**
