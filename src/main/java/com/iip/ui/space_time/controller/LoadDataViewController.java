@@ -1,5 +1,6 @@
 package com.iip.ui.space_time.controller;
 
+import com.iip.data.space_time.SpaceTimeData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,14 +21,11 @@ import java.util.ResourceBundle;
  * @Author Junnor.G
  * @Date 2018/12/5 下午7:56
  */
-public class LoadDataViewController implements Initializable{
+public class LoadDataViewController extends RootController implements Initializable{
     @FXML
     private ListView<String> LVRawDataListView;
     @FXML
     private ListView<String> LVHandledDataListView;
-
-    private ObservableList<String> rawDataList = FXCollections.observableArrayList();
-    private ObservableList<String> handledDataList = FXCollections.observableArrayList();
 
 
     @FXML
@@ -60,9 +58,9 @@ public class LoadDataViewController implements Initializable{
                 }
             }
         }
-        rawDataList.clear();
-        rawDataList.addAll(tmpData);
-        LVRawDataListView.setItems(rawDataList);
+        SpaceTimeData.rawDataList.clear();
+        SpaceTimeData.rawDataList.addAll(tmpData);
+        LVRawDataListView.setItems(SpaceTimeData.rawDataList);
     }
     @FXML
     private void loadDataByMysqlClicked(MouseEvent mouseEvent){
@@ -70,20 +68,37 @@ public class LoadDataViewController implements Initializable{
     }
     @FXML
     private void replaceDataClicked(MouseEvent mouseEvent){
-        handledDataList.clear();
-        for(String v: rawDataList)
-            handledDataList.add(v);
-        LVHandledDataListView.setItems(handledDataList);
+        SpaceTimeData.handledDataList.clear();
+        for(String v: SpaceTimeData.rawDataList)
+            SpaceTimeData.handledDataList.add(v);
+        LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
     }
     @FXML
     private void appendDataClicked(MouseEvent mouseEvent){
-        for(String v: rawDataList)
-            handledDataList.add(v);
-        LVHandledDataListView.setItems(handledDataList);
+        for(String v: SpaceTimeData.rawDataList)
+            SpaceTimeData.handledDataList.add(v);
+        LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
     }
 
     @Override
+    public void init(){
+        // todo
+    }
+    @Override
     public void initialize(URL location, ResourceBundle resources){
+        LVRawDataListView.setItems(SpaceTimeData.handledDataList);
+        LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
+        init();
+    }
 
+    /**
+     * get function
+     */
+    public ListView<String> getLVRawDataListView() {
+        return LVRawDataListView;
+    }
+
+    public ListView<String> getLVHandledDataListView() {
+        return LVHandledDataListView;
     }
 }

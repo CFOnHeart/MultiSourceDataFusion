@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iip.ui.space_time.controller.SpaceTimeViewController">
    <children>
-      <ListView id="LVData" prefHeight="100.0" prefWidth="400.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="50.0" />
+      <ListView id="LVData" prefHeight="100.0" prefWidth="550.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="50.0" />
       <Label id="LBData" prefHeight="31.0" prefWidth="80.0" text="dataset" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="19.0" />

@@ -23,11 +23,13 @@ class MenuModule{
     private AnchorPane pane;
     private String fxmlPath;
     private String text;
+    private String controllerClassName;
 
-    MenuModule(AnchorPane pane, String fxmlPath, String text){
+    MenuModule(AnchorPane pane, String fxmlPath, String text, String controllerClassName){
         this.pane = pane;
         this.fxmlPath = fxmlPath;
         this.text = text;
+        this.controllerClassName = controllerClassName;
     }
 
     public AnchorPane getPane() {
@@ -41,6 +43,8 @@ class MenuModule{
     public String getText(){
         return text;
     }
+
+    public String getControllerClassName(){ return controllerClassName; }
 }
 
 public class SpaceTimeMainViewController extends RootController implements Initializable{
@@ -112,6 +116,10 @@ public class SpaceTimeMainViewController extends RootController implements Initi
 
                 BPMainViewPane.setCenter(connectionConfigPane);
                 currentMenuPane = selectedMenuPane;
+//                if( Context.controllers.containsKey(menuModule.getControllerClassName()) == true) {
+//                    System.out.println("In Main View");
+//                    ((RootController) Context.controllers.get(menuModule.getControllerClassName())).init();
+//                }
                 break;
             }
         }
@@ -121,21 +129,25 @@ public class SpaceTimeMainViewController extends RootController implements Initi
         AnchorPane selectedMenuPane = APLoadData;
         changeMenuView(selectedMenuPane);
     }
-
+    @Override
+    public void init(){
+        // todo
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        init();
         System.out.println("In SpaceTimeMainViewController initialize");
         menuModules = new ArrayList<MenuModule>();
         // 加载数据界面
-        menuModules.add(new MenuModule(APLoadData, "../view/LoadDataView.fxml", "Load Data"));
+        menuModules.add(new MenuModule(APLoadData, "../view/LoadDataView.fxml", "Load Data", "LoadDataViewController"));
         // 分词界面
-        menuModules.add(new MenuModule(APParticiple, "../view/ParticipleView.fxml", "Participle"));
+        menuModules.add(new MenuModule(APParticiple, "../view/ParticipleView.fxml", "Participle", "ParticipleViewController"));
         // 实体界面
-        menuModules.add(new MenuModule(APEntity, "../view/EntityView.fxml", "Entity"));
+        menuModules.add(new MenuModule(APEntity, "../view/EntityView.fxml", "Entity", "EntityViewController"));
         // 时空性界面
-        menuModules.add(new MenuModule(APSpaceTime, "../view/SpaceTimeView.fxml", "Space Time"));
+        menuModules.add(new MenuModule(APSpaceTime, "../view/SpaceTimeView.fxml", "Space Time", "SpaceTimeViewController"));
         // 设置界面
-        menuModules.add(new MenuModule(APSetting, "../view/SettingView.fxml", "Setting"));
+        menuModules.add(new MenuModule(APSetting, "../view/SettingView.fxml", "Setting", "SettingViewController"));
     }
 
 }
