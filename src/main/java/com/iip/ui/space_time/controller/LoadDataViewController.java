@@ -1,5 +1,7 @@
 package com.iip.ui.space_time.controller;
 
+import com.iip.data.participle.SingleDocParticiple;
+import com.iip.data.space_time.SpaceTimeData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,25 +22,20 @@ import java.util.ResourceBundle;
  * @Author Junnor.G
  * @Date 2018/12/5 下午7:56
  */
-public class LoadDataViewController implements Initializable{
+public class LoadDataViewController extends RootController implements Initializable{
     @FXML
     private ListView<String> LVRawDataListView;
     @FXML
     private ListView<String> LVHandledDataListView;
 
-    private ObservableList<String> rawDataList = FXCollections.observableArrayList();
-    private ObservableList<String> handledDataList = FXCollections.observableArrayList();
-
-    private String [] tmpData = {"hhh", "hhhh", "hhhhhh"};
 
     @FXML
-    private void loadDataClicked(MouseEvent mouseEvent){
-//        rawDataList.addAll(tmpData);
-//        LVRawDataListView.setItems(rawDataList);
+    private void loadDataByFileClicked(MouseEvent mouseEvent){
         // 根据文件选择器选取文件加载要读入的数据
         Stage stage = (Stage) LVRawDataListView.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(stage);
+        if(file == null) return;
         // 从获取到的文件中读入文本数据，以行为单位
         List<String> tmpData = new ArrayList<>();
         BufferedReader reader = null;
@@ -53,7 +50,7 @@ public class LoadDataViewController implements Initializable{
             }
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         } finally {
             if (reader != null) {
                 try {
@@ -62,15 +59,59 @@ public class LoadDataViewController implements Initializable{
                 }
             }
         }
-        rawDataList.addAll(tmpData);
-        LVRawDataListView.setItems(rawDataList);
+        SpaceTimeData.rawDataList.clear();
+        SpaceTimeData.rawDataList.addAll(tmpData);
+        LVRawDataListView.setItems(SpaceTimeData.rawDataList);
     }
     @FXML
-    private void handleDataClicked(MouseEvent mouseEvent){
+    private void loadDataByMysqlClicked(MouseEvent mouseEvent){
+        // todo
+    }
+    @FXML
+    private void replaceDataClicked(MouseEvent mouseEvent){
+        SpaceTimeData.handledDataList.clear();
+        for(String v: SpaceTimeData.rawDataList)
+            SpaceTimeData.handledDataList.add(v);
+        LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
+        synSpaceTimeData();
+    }
+    @FXML
+    private void appendDataClicked(MouseEvent mouseEvent){
+        for(String v: SpaceTimeData.rawDataList)
+            SpaceTimeData.handledDataList.add(v);
+        LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
+        synSpaceTimeData();
+    }
 
+    @Override
+    public void init(){
+        // todo
     }
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        LVRawDataListView.setItems(SpaceTimeData.handledDataList);
+        LVHandledDataListView.setItems(SpaceTimeData.handledDataList);
+        init();
+    }
 
+    public void synSpaceTimeData(){
+        SpaceTimeData.participleItems.clear();
+        for (int i=0 ; i<SpaceTimeData.handledDataList.size() ; i++){
+            SingleDocParticiple item = new SingleDocParticiple();
+            item.setId(i);
+            item.setText(SpaceTimeData.handledDataList.get(i));
+            SpaceTimeData.participleItems.add(item);
+        }
+    }
+
+    /**
+     * get function
+     */
+    public ListView<String> getLVRawDataListView() {
+        return LVRawDataListView;
+    }
+
+    public ListView<String> getLVHandledDataListView() {
+        return LVHandledDataListView;
     }
 }

@@ -49,9 +49,14 @@ public class SpaceTimeViewController extends RootController implements Initializ
 //        SpaceTimeMainViewController.currentMenuPane = SpaceTimeMainViewController.APLoadData;
     }
     @Override
+    public void init(){
+        // todo
+    }
+    @Override
     public void initialize(URL location, ResourceBundle resources){
+        init();
         // 数据如果已经加载过，就不显示加载数据的提示
-        if(SpaceTimeData.getData().getRawData().size() > 0){
+        if( SpaceTimeData.handledDataList.size() > 0 ){
             BtnHintLoad.setOpacity(0.0f);
             TFHintLoad.setOpacity(0.0f);
         }
