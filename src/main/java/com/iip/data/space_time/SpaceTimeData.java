@@ -5,6 +5,7 @@ package com.iip.data.space_time;
  * @Date 2018/12/6 下午5:44
  */
 import com.iip.data.entity.Entity;
+import com.iip.data.participle.SingleDocParticiple;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -42,4 +43,5 @@ public class SpaceTimeData {
 
     public static ObservableList<String> rawDataList = FXCollections.observableArrayList();
     public static ObservableList<String> handledDataList = FXCollections.observableArrayList();
+    public static ObservableList<SingleDocParticiple> participleItems = FXCollections.observableArrayList();
 }

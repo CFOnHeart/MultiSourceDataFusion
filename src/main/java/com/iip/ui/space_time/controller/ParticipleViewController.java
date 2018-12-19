@@ -2,6 +2,7 @@ package com.iip.ui.space_time.controller;
 
 import com.iip.data.participle.SingleDocParticiple;
 import com.iip.data.space_time.SpaceTimeData;
+import com.iip.textprocess.participle.Participle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,7 +14,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,17 +43,8 @@ public class ParticipleViewController extends RootController implements Initiali
     private Button BtnHintLoad;
     @FXML
     private TabPane TPParticiple;
+    public TabPane getTPParticiple(){ return TPParticiple; }
 
-
-//    @FXML
-//    public void participleAllClicked(MouseEvent event){
-//        System.out.println("here");
-////        System.out.println( "Here debug: "+getTPParticiple().getSelectionModel().getSelectedIndex() );
-//    }
-//    @FXML
-//    public void participleSelectClicked(MouseEvent event){
-//        System.out.println("here");
-//    }
 
     public Tab generateNewTab(String id, String text){
         Tab tab = new Tab();
@@ -61,6 +60,75 @@ public class ParticipleViewController extends RootController implements Initiali
             return null;
         }
         return tab;
+    }
+
+    /**
+     * 下方的组件跟停用词加载相关
+     */
+    @FXML
+    VBox VBStopwords;
+    @FXML
+    Button BtnSwichPresent;
+    @FXML
+    TextArea TAStopwords;
+
+    public void refreshTAStopwords(){
+        String userStopWords = "";
+        for (String word: Participle.userStopWords)
+            userStopWords += word+"\n";
+        TAStopwords.setText(userStopWords);
+    }
+
+    @FXML
+    public void showStopwordsLoadViewClicked(){
+        if (VBStopwords.isVisible() == true){
+            BtnSwichPresent.setText("显示停用词加载界面");
+            VBStopwords.setVisible(false);
+        }
+        else{
+            BtnSwichPresent.setText("关闭停用词加载界面");
+            VBStopwords.setVisible(true);
+        }
+
+    }
+
+    @FXML
+    public void updateStopwordsClicked(){
+        String stopWords = TAStopwords.getText();
+        String [] lines = stopWords.split("\n");
+        Participle.userStopWords.clear();
+        for (String line: lines){
+            System.out.println("debug updateStopwordsClicked："+line);
+            Participle.userStopWords.add(line);
+        }
+    }
+
+    @FXML
+    public void selectStopwordsClicked(){
+        // 根据文件选择器选取文件加载要读入的数据
+        Stage stage = (Stage) TAStopwords.getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(stage);
+        if(file == null) return;
+        // 从获取到的文件中读入文本数据，以行为单位
+        BufferedReader reader = null;
+        try {
+            String temp = null;
+            reader = new BufferedReader(new FileReader(file));
+            Participle.userStopWords.clear();
+            while ((temp = reader.readLine()) != null)
+                Participle.userStopWords.add(temp);
+            reader.close();
+            refreshTAStopwords();
+        } catch (IOException e) {
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
+        }
     }
 
     @Override
@@ -89,6 +157,9 @@ public class ParticipleViewController extends RootController implements Initiali
         if(tab1 != null) TPParticiple.getTabs().add(tab1);
         Tab tab2 = generateNewTab("Tab2", "Method2");
         if(tab2 != null) TPParticiple.getTabs().add(tab2);
+
+        // 加载当前的停用词表
+        refreshTAStopwords();
     }
 
     @Override
@@ -97,5 +168,5 @@ public class ParticipleViewController extends RootController implements Initiali
         init();
     }
 
-    public TabPane getTPParticiple(){ return TPParticiple; }
+
 }
