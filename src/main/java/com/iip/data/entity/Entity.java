@@ -5,6 +5,7 @@ package com.iip.data.entity;
  * @Date 2018/12/6 下午6:05
  */
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class Entity {
@@ -14,6 +15,7 @@ public abstract class Entity {
         {
             put("PlaceEntity", "place");
             put("TimeEntity", "time");
+            put("NameEntity", "name");
         }
     };
 

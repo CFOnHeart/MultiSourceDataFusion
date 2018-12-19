@@ -14,7 +14,7 @@ public class Test {
 
     public static void main(String [] args){
         entities = new ArrayList<>();
-        entities.add(new PlaceEntity("故宫"));
+        entities.add(new NameEntity("周瑜"));
 
         entities.add(new TimeEntity("2019年"));
 

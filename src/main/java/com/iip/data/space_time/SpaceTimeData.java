@@ -44,4 +44,5 @@ public class SpaceTimeData {
     public static ObservableList<String> rawDataList = FXCollections.observableArrayList();
     public static ObservableList<String> handledDataList = FXCollections.observableArrayList();
     public static ObservableList<SingleDocParticiple> participleItems = FXCollections.observableArrayList();
+    public static List<PeopleOrientation> peopleOrientations = new ArrayList<>();
 }

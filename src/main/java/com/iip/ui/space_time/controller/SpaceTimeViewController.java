@@ -1,15 +1,16 @@
 package com.iip.ui.space_time.controller;
 
+import com.iip.data.space_time.Orientation;
+import com.iip.data.space_time.PeopleOrientation;
 import com.iip.data.space_time.SpaceTimeData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -17,6 +18,8 @@ import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -25,51 +28,71 @@ import java.util.ResourceBundle;
  */
 public class SpaceTimeViewController extends RootController implements Initializable{
     @FXML
-    private ListView<String> LVData;
+    private ListView<String> LBEntityShow;
     @FXML
-    private Label LBData;
-    @FXML
-    private TextField TFHintLoad;
-    @FXML
-    private Button BtnHintLoad;
+    private TreeView TrVEntityShow;
 
-    private void hintLoadClicked(MouseEvent event){
-//        SpaceTimeMainViewController.LblMainTitle.setText("Load Data");
-//        SpaceTimeMainViewController.APLoadData.getStylesheets().clear();
-//        SpaceTimeMainViewController.APLoadData.getStylesheets().add("menuButtonSelected");
-//        try {
-//            FXMLLoader loader = new FXMLLoader();
-//            loader.setLocation(SpaceTimeMainViewController.class.getResource("../view/LoadDataView.fxml"));
-//            AnchorPane connectionConfigPane = loader.load();
-//            connectionConfigPane.setPrefSize(SpaceTimeMainViewController.BPMainViewPane.getWidth()-60, SpaceTimeMainViewController.BPMainViewPane.getHeight()-60);
-//            SpaceTimeMainViewController.BPMainViewPane.setCenter(connectionConfigPane);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        SpaceTimeMainViewController.currentMenuPane = SpaceTimeMainViewController.APLoadData;
+    public ImageView loadImageView(String path, int width, int height){
+        ImageView icon = new ImageView();
+        Image image = new Image(getClass().getResourceAsStream(path));
+        icon.setImage(image);
+        icon.setFitWidth(width);
+        icon.setFitHeight(height);
+        return icon;
     }
+
+    public void updateTrVEntityShow(List<PeopleOrientation> peopleOrientation){
+        TreeItem treeItem = new TreeItem("人名总览");
+        ImageView peopleIcon = loadImageView("../view/picture/people.png", 30, 30);
+        treeItem.setGraphic(peopleIcon);
+
+        for(PeopleOrientation peo: peopleOrientation){
+            TreeItem peopleItem = new TreeItem(peo.getName());
+            ImageView menIcon = loadImageView("../view/picture/men.png", 28, 28);
+            peopleItem.setGraphic(menIcon);
+            for (Orientation ori: peo.getOrientations()){
+                ImageView houseIcon = loadImageView("../view/picture/house.png", 16, 16);
+                System.out.println("debug: " + ori.getPlace()+" ; " + ori.getDate().toString());
+                TreeItem oriItem = new TreeItem(ori.getPlace()+" ; " + ori.getDate().toString());
+                oriItem.setGraphic(houseIcon);
+                peopleItem.getChildren().add(oriItem);
+            }
+
+            treeItem.getChildren().add(peopleItem);
+            TrVEntityShow.setRoot(treeItem);
+            TrVEntityShow.refresh();
+        }
+    }
+
     @Override
     public void init(){
         // todo
+        test();
+
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources){
         init();
-        // 数据如果已经加载过，就不显示加载数据的提示
-        if( SpaceTimeData.handledDataList.size() > 0 ){
-            BtnHintLoad.setOpacity(0.0f);
-            TFHintLoad.setOpacity(0.0f);
-        }
-        else{
-            BtnHintLoad.setOpacity(1.0f);
-            TFHintLoad.setOpacity(1.0f);
-            BtnHintLoad.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    SpaceTimeMainViewController controller = (SpaceTimeMainViewController)Context.controllers.get(SpaceTimeMainViewController.class.getSimpleName());
-                    controller.presentLoginView();
-                }
-            });
-        }
+    }
+
+    // 构造一个测试函数，构建一个peopleOrientations用于TreeView的展示
+    private void test(){
+        SpaceTimeData.peopleOrientations.clear();
+
+        PeopleOrientation item1 = new PeopleOrientation();
+        item1.setName("Jack");
+        item1.getOrientations().add(new Orientation("Starbuck", new Date(2018, 1, 2)));
+        item1.getOrientations().add(new Orientation("网鱼网咖", new Date(2018, 1, 3)));
+        SpaceTimeData.peopleOrientations.add(item1);
+
+        PeopleOrientation item2 = new PeopleOrientation();
+        item2.setName("Tom");
+        item2.getOrientations().add(new Orientation("大渝火锅", new Date(2017, 2, 2)));
+        item2.getOrientations().add(new Orientation("海底捞", new Date(2018, 2, 3)));
+        SpaceTimeData.peopleOrientations.add(item2);
+
+        updateTrVEntityShow(SpaceTimeData.peopleOrientations);
+
     }
 }
