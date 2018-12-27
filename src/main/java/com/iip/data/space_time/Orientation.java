@@ -11,6 +11,11 @@ public class Orientation{
 
     public Orientation(String place, Date date){ this.date=date; this.place=place; }
 
+    public Orientation(String place, Date date, double lng, double lat){
+        this.date=date; this.place=place;
+        this.lng = lng; this.lat = lat;
+    }
+
     public String getPlace() {
         return place;
     }
@@ -27,7 +32,25 @@ public class Orientation{
         this.date = date;
     }
 
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
     private String place;
     private Date date;
+    private double lng;
+    private double lat;
 
 }

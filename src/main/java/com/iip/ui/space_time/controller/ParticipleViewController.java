@@ -133,7 +133,6 @@ public class ParticipleViewController extends RootController implements Initiali
 
     @Override
     public void init(){
-        System.out.println("In Participle View");
         // 数据如果已经加载过，就不显示加载数据的提示
         if( SpaceTimeData.handledDataList.size() > 0 ){
             BtnHintLoad.setOpacity(0.0f);

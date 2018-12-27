@@ -14,7 +14,7 @@ import java.util.List;
 public class SingleDocParticiple {
     private int id;
     private String text;
-    private String participleResult = "aaa";
+    private String participleResult = "";
     private List<Word> words = new ArrayList<>();
 
     // 将words转化为字符串的表达形式，方便转换给participleResult

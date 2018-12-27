@@ -1,5 +1,6 @@
 package com.iip.ui.space_time.controller;
 
+import com.iip.data.entity.SingleDocEntity;
 import com.iip.data.participle.SingleDocParticiple;
 import com.iip.data.space_time.SpaceTimeData;
 import javafx.collections.FXCollections;
@@ -96,11 +97,19 @@ public class LoadDataViewController extends RootController implements Initializa
 
     public void synSpaceTimeData(){
         SpaceTimeData.participleItems.clear();
+        SpaceTimeData.entityItems.clear();
         for (int i=0 ; i<SpaceTimeData.handledDataList.size() ; i++){
+            // 添加分词数据对象
             SingleDocParticiple item = new SingleDocParticiple();
             item.setId(i);
             item.setText(SpaceTimeData.handledDataList.get(i));
             SpaceTimeData.participleItems.add(item);
+
+            // 添加实体数据对象
+            SingleDocEntity entity = new SingleDocEntity();
+            entity.setId(i);
+            entity.setText(SpaceTimeData.handledDataList.get(i));
+            SpaceTimeData.entityItems.add(entity);
         }
     }
 
