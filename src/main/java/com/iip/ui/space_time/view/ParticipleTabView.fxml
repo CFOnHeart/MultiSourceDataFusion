@@ -17,9 +17,10 @@
     <center>
         <TableView fx:id="TVParticiple" fixedCellSize="0.0" prefHeight="400.0" prefWidth="549.0">
             <columns>
-                <TableColumn fx:id="TCID" prefWidth="100.0" text="ID" />
-                <TableColumn fx:id="TCRawData" prefWidth="397.00001525878906" text="源文本" />
-                <TableColumn fx:id="TCParticipleRes" prefWidth="481.0" text="分词结果" />
+                <TableColumn fx:id="TCID" prefWidth="70" text="ID" />
+                <TableColumn fx:id="TCDate" prefWidth="170" text="Date" />
+                <TableColumn fx:id="TCRawData" prefWidth="310.0" text="源文本" />
+                <TableColumn fx:id="TCParticipleRes" prefWidth="430.0" text="分词结果" />
             </columns>
         </TableView>
     </center>

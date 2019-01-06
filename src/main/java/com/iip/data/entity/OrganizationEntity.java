@@ -9,32 +9,28 @@ import java.util.List;
 
 /**
  * @Author Junnor.G
- * @Date 2018/12/6 下午6:12
- * 地点实体类
+ * @Date 2018/12/25 下午4:25
  */
-public class PlaceEntity extends Entity{
-
-    public PlaceEntity(String word){
+public class OrganizationEntity extends Entity {
+    public OrganizationEntity(String word){
         super(word);
     }
+
     @Override
     public String getType(){
         return this.type;
     }
 
-    public void hello(){
-        System.out.println("Place Entity " + word +" Hello!");
-    }
-
     public static List<Entity> entityRecognition(String sentence){
-        Segment segment = HanLP.newSegment().enablePlaceRecognize(true);
+        Segment segment = HanLP.newSegment();
+        segment.enableOrganizationRecognize(true);
 
         List<Term> termList = segment.seg(sentence);
         System.out.println(termList);
         List<Entity> entities = new ArrayList<>();
         for (Term term: termList){
-            if ( term.nature.name().equals("ns") )
-                entities.add( new PlaceEntity(term.word) );
+            if ( term.nature.name().contains("nt") )
+                entities.add( new OrganizationEntity(term.word) );
         }
         return entities;
     }

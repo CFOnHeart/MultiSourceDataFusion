@@ -3,7 +3,9 @@ package com.iip.data.participle;
 import com.iip.textprocess.participle.Participle;
 import com.iip.textprocess.participle.Word;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,7 +16,9 @@ import java.util.List;
 public class SingleDocParticiple {
     private int id;
     private String text;
-    private String participleResult = "aaa";
+    private String participleResult = "";
+    private String dateStr = "";
+    private Date date;
     private List<Word> words = new ArrayList<>();
 
     // 将words转化为字符串的表达形式，方便转换给participleResult
@@ -44,7 +48,15 @@ public class SingleDocParticiple {
     }
 
     public void setText(String text) {
-        this.text = text;
+        int index = text.indexOf(')');
+        this.text = text.substring(index+1);
+        this.dateStr = text.substring(1, index);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try{
+            date = simpleDateFormat.parse(dateStr);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     public String getParticipleResult() {
@@ -62,6 +74,26 @@ public class SingleDocParticiple {
 
     public void setWords(int index, Word word){
         words.set(index, word);
+    }
+
+    public String getDateStr() {
+        return dateStr;
+    }
+
+    public void setDateStr(String dateStr) {
+        this.dateStr = dateStr;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setWords(List<Word> words) {
+        this.words = words;
     }
 
     // for test

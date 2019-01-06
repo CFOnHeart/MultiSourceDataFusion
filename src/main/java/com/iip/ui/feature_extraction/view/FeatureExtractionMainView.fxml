@@ -47,6 +47,7 @@
                         <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP1" mouseTransparent="true" />
                     </children>
                 </AnchorPane>
+
                 <AnchorPane fx:id="feStep2" layoutX="-70.0" layoutY="6.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-51.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
@@ -57,17 +58,8 @@
                         <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP2" mouseTransparent="true" />
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="feStep3" layoutX="-86.0" layoutY="320.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                    <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                            <image>
-                                <Image url="@picture/settingsMenuButton.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP3" mouseTransparent="true" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane fx:id="feStep4" layoutY="120.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0">
+
+                <AnchorPane fx:id="feStep3" layoutY="120.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0">
                     <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                             <image>
@@ -77,10 +69,23 @@
                         <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP4" mouseTransparent="true" />
                     </children>
                 </AnchorPane>
+
+                <AnchorPane fx:id="feStep4" layoutX="-86.0" layoutY="320.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/settingsMenuButton.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP3" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
             </children>
         </AnchorPane>
     </left>
     <center>
-        <BorderPane fx:id="feFunctionPane" BorderPane.alignment="CENTER" />
+        <BorderPane fx:id="feFunctionPane" BorderPane.alignment="CENTER">
+        </BorderPane>
+
     </center>
 </BorderPane>
