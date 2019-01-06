@@ -2,7 +2,9 @@ package com.iip.data.entity;
 
 import com.iip.textprocess.participle.Word;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,7 +15,8 @@ public class SingleDocEntity {
     private int id;
     private String text;
     private String entityResult = "";
-    private String date = "";
+    private String dateStr = "";
+    private Date date;
     private List<Entity> entities = new ArrayList<>();
 
     public static List<Entity> entityExtract(String text){
@@ -54,14 +57,30 @@ public class SingleDocEntity {
     }
 
     public void setText(String text) {
-        this.text = text;
+        int index = text.indexOf(')');
+        this.text = text.substring(index+1);
+        this.dateStr = text.substring(1, index);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try{
+            date = simpleDateFormat.parse(dateStr);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
-    public String getDate() {
+    public String getDateStr() {
+        return dateStr;
+    }
+
+    public void setDateStr(String dateStr) {
+        this.dateStr = dateStr;
+    }
+
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -1,6 +1,7 @@
 package com.iip.data.space_time;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +34,11 @@ public class PeopleOrientation {
 
     public void setOrientations(List<Orientation> orientations) {
         this.orientations = orientations;
+        sort();
+    }
+
+    public void sort(){
+        Collections.sort(orientations);
     }
 
     private String id;

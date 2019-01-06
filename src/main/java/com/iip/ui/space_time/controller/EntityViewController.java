@@ -31,6 +31,8 @@ public class EntityViewController extends RootController implements Initializabl
     @FXML
     private TableColumn TCID;
     @FXML
+    private TableColumn TCDate;
+    @FXML
     private TableColumn TCRawData;
     @FXML
     private TableColumn TCEntityRes;
@@ -101,6 +103,7 @@ public class EntityViewController extends RootController implements Initializabl
         init();
         refreshTableData();
         TCID.setCellValueFactory( new PropertyValueFactory("id") );
+        TCDate.setCellValueFactory(new PropertyValueFactory("dateStr"));
         TCRawData.setCellValueFactory( new PropertyValueFactory("text"));
         TCEntityRes.setCellValueFactory( new PropertyValueFactory("entityResult") );
     }

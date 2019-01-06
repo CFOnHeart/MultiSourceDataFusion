@@ -30,6 +30,8 @@ public class ParticipleTabViewController implements Initializable{
     @FXML
     private TableColumn TCID;
     @FXML
+    private TableColumn TCDate;
+    @FXML
     private TableColumn TCRawData;
     @FXML
     private TableColumn TCParticipleRes;
@@ -83,6 +85,7 @@ public class ParticipleTabViewController implements Initializable{
     public void initialize(URL location, ResourceBundle resources){
         refreshTableData();
         TCID.setCellValueFactory( new PropertyValueFactory("id") );
+        TCDate.setCellValueFactory(new PropertyValueFactory("dateStr"));
         TCRawData.setCellValueFactory( new PropertyValueFactory("text"));
         TCParticipleRes.setCellValueFactory( new PropertyValueFactory("participleResult") );
     }

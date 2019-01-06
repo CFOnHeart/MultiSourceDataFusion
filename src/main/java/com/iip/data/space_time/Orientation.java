@@ -6,7 +6,7 @@ import java.util.Date;
  * @Author Junnor.G
  * @Date 2018/12/19 下午2:36
  */
-public class Orientation{
+public class Orientation implements Comparable<Orientation>{
     public Orientation(){}
 
     public Orientation(String place, Date date){ this.date=date; this.place=place; }
@@ -52,5 +52,10 @@ public class Orientation{
     private Date date;
     private double lng;
     private double lat;
+
+    @Override
+    public int compareTo(Orientation obj){
+        return date.compareTo(obj.date);
+    }
 
 }

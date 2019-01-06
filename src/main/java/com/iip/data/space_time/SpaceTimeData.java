@@ -70,7 +70,7 @@ public class SpaceTimeData {
                 if (entity.getType().equals("organization")){
                     isAdd = true;
                     placeEntityTemp = null;
-                    orientations.add(new Orientation(entity.word, new Date()));
+                    orientations.add(new Orientation(entity.word, item.getDate()));
                 }
                 if (entity.getType().equals("name")){
                     names.add(entity.word);
@@ -78,7 +78,7 @@ public class SpaceTimeData {
             }
 
             if (orientations.size() == 0 && placeEntityTemp != null)
-                orientations.add(new Orientation(placeEntityTemp.word, new Date()));
+                orientations.add(new Orientation(placeEntityTemp.word, item.getDate()));
 
             if(names.size() == 0) continue;
             for (String name: names){
