@@ -1,120 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<!--  stylesheets="@stylesheet/ConnectionSettingView.css"  -->
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<HBox prefHeight="700.0" prefWidth="1000.0" stylesheets="@stylesheet/ConnectionSettingView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iip.ui.feature_extraction.controller.FEStep2Controller">
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.FEStep2Controller">
     <children>
-        <VBox prefWidth="200.0">
-            <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="40.0">
-                    <children>
-                        <Label prefHeight="20.0" text="源连接">
-                            <HBox.margin>
-                                <Insets bottom="10.0" left="15.0" top="10.0" />
-                            </HBox.margin>
-                        </Label>
-                        <AnchorPane prefWidth="100.0" HBox.hgrow="ALWAYS">
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                            <children>
-                                <Label layoutX="81.0" layoutY="12.0" onMouseClicked="#addSourceConnetionClicked" prefHeight="20.0" styleClass="hyperlink-font" text="添加" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </HBox>
-                <ListView fx:id="connectionListView" prefHeight="200.0" prefWidth="200.0" stylesheets="@stylesheet/List.css">
-                    <VBox.margin>
-                        <Insets left="15.0" right="15.0" />
-                    </VBox.margin>
-                </ListView>
-                <Separator prefWidth="200.0">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                    <VBox.margin>
-                        <Insets left="15.0" right="15.0" top="5.0" />
-                    </VBox.margin>
-                </Separator>
-                <AnchorPane fx:id="connectionDetailPane" prefHeight="40.0" prefWidth="200.0">
-                    <VBox.margin>
-                        <Insets top="5.0" />
-                    </VBox.margin>
-                    <children>
-                        <Label alignment="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="20.0" text="表格" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
-                    </children>
-                </AnchorPane>
-                <ListView fx:id="connectionDetialListView" prefHeight="200.0" prefWidth="200.0" stylesheets="@stylesheet/List.css" VBox.vgrow="ALWAYS">
-                    <VBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" />
-                    </VBox.margin>
-                </ListView>
-            </children>
-        </VBox>
-        <Separator orientation="VERTICAL">
-            <HBox.margin>
-                <Insets bottom="15.0" top="15.0" />
-            </HBox.margin>
-        </Separator>
-        <VBox HBox.hgrow="ALWAYS">
-            <HBox.margin>
-                <Insets />
-            </HBox.margin>
-            <children>
-                <HBox alignment="CENTER_LEFT" maxHeight="40.0" prefHeight="40.0" prefWidth="797.0">
-                    <children>
-                        <Label prefHeight="20.0" text="目标">
-                            <HBox.margin>
-                                <Insets bottom="10.0" left="15.0" top="10.0" />
-                            </HBox.margin>
-                        </Label>
-                        <ComboBox fx:id="targetConnectionNameComboBox" maxHeight="30.0" maxWidth="225.0" minHeight="30.0" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" styleClass="combo-box" stylesheets="@stylesheet/ComboBox.css">
-                            <HBox.margin>
-                                <Insets bottom="5.0" left="5.0" top="5.0" />
-                            </HBox.margin>
-                        </ComboBox>
-                        <AnchorPane maxHeight="20.0" prefHeight="20.0" HBox.hgrow="ALWAYS">
-                            <children>
-                                <Label layoutX="405.0" layoutY="12.0" maxHeight="20.0" onMouseClicked="#addTargetConnectionClicked" prefHeight="20.0" styleClass="hyperlink-font" text="添加" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0" />
-                            </children>
-                            <HBox.margin>
-                                <Insets bottom="10.0" top="10.0" />
-                            </HBox.margin>
-                        </AnchorPane>
-                    </children>
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </HBox>
-                <AnchorPane>
-                    <children>
-                        <FlowPane fx:id="targetConnectionTablesPane" layoutX="15.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
-                            <VBox.margin>
-                                <Insets left="15.0" right="50.0" top="5.0" />
-                            </VBox.margin>
-                            <HBox.margin>
-                                <Insets left="1.0" right="50.0" />
-                            </HBox.margin>
-                        </FlowPane>
-                        <Label layoutY="200.0" onMouseClicked="#addTableToTargetConnectionClicked" styleClass="hyperlink-font" text="添加" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0">
-                            <HBox.margin>
-                                <Insets left="15.0" right="15.0" />
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                </AnchorPane>
-                <Separator prefWidth="200.0">
-                    <VBox.margin>
-                        <Insets left="15.0" right="15.0" top="5.0" />
-                    </VBox.margin>
-                </Separator>
-                <AnchorPane fx:id="tableDetailPane" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                    <VBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="5.0" />
-                    </VBox.margin>
-                </AnchorPane>
-            </children>
-        </VBox>
+        <ListView fx:id="rawDataListView" layoutX="14.0" layoutY="50.0" prefHeight="270.0" prefWidth="972.0" />
+        <Separator layoutX="14.0" layoutY="326.0" prefHeight="6.0" prefWidth="972.0" />
+        <ListView fx:id="handledDataListView" layoutX="13.0" layoutY="371.0" prefHeight="314.9998779296875" prefWidth="972.0" />
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="Load" />
+        <Button layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#handleDataClicked" text="Transfer" />
+        <Label layoutX="142.0" layoutY="18.0" prefWidth="97.0" text="database: d1" />
+        <Label layoutX="142.0" layoutY="341.0" prefWidth="97.0" text="database: d1" />
+        <Label layoutX="296.0" layoutY="17.0" prefWidth="97.0" text="table: t1" />
+        <Label layoutX="296.0" layoutY="341.0" prefWidth="97.0" text="table: t2" />
+        <Button layoutX="499.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#exportDataClicked" text="Export" />
+        <Label layoutX="636.0" layoutY="340.0" prefWidth="97.0" text="database: d1" />
+        <Label layoutX="790.0" layoutY="340.0" prefWidth="97.0" text="table: t3" />
     </children>
-</HBox>
+</AnchorPane>

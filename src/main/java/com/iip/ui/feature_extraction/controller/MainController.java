@@ -42,11 +42,11 @@ public class MainController {
     /**
      * 缓存连接配置界面
      */
-    private AnchorPane connectionConfigPane;
+    private AnchorPane paneStep1, paneStep2, paneStep3, paneConfig;
 
-    private VBox generatePane;
+//    private VBox generatePane;
 
-    private VBox searchPane;
+//    private VBox searchPane;
 
     @FXML
     private void menuButtonClicked(MouseEvent mouseEvent) {
@@ -66,18 +66,18 @@ public class MainController {
             feStep1.getStyleClass().clear();
             feStep1.getStyleClass().add("menuButtonSelected");
             feMainTitle.setText("FE-STEP1");
-            if (connectionConfigPane == null){
+            if (paneStep1 == null){
                 try {
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(MainController.class.getResource("../view/FEStep1View.fxml"));
-                    connectionConfigPane = loader.load();
-                    connectionConfigPane.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
+                    paneStep1 = loader.load();
+                    paneStep1.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
-            feMainViewPane.setCenter(connectionConfigPane);
+            feMainViewPane.setCenter(paneStep1);
             currentMenuButton = selectedMenuButton;
         }
 
@@ -85,20 +85,18 @@ public class MainController {
             feStep2.getStyleClass().clear();
             feStep2.getStyleClass().add("menuButtonSelected");
             feMainTitle.setText("FE-STEP2");
+            if (paneStep2 == null){
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(MainController.class.getResource("../view/FEStep2View.fxml"));
+                    paneStep2 = loader.load();
+                    paneStep2.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
-//            try {
-//                FXMLLoader loader = new FXMLLoader();
-//
-//                loader.setLocation(MainController.class.getResource("../view/FEStep2View.fxml"));
-//                searchPane = (VBox) loader.load();
-//
-//                searchPane.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//
-//            feMainViewPane.setCenter(searchPane);
+            feMainViewPane.setCenter(paneStep2);
             currentMenuButton = selectedMenuButton;
         }
 
@@ -107,30 +105,38 @@ public class MainController {
             feStep3.getStyleClass().add("menuButtonSelected");
             feMainTitle.setText("FE-STEP3");
 
-//            if (generatePane == null){
-//            try {
-//                FXMLLoader loader = new FXMLLoader();
-//
-//                loader.setLocation(MainController.class.getResource("../view/FEStep3View.fxml"));
-//                generatePane = loader.load();
-//                GenerateDatabaseController controller = loader.getController();
-//                controller.initTextArea();
-//                generatePane.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-////            }
-//
-//            feMainViewPane.setCenter(generatePane);
+            if (paneStep3 == null){
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(MainController.class.getResource("../view/FEStep3View.fxml"));
+                    paneStep3 = loader.load();
+                    paneStep3.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            feMainViewPane.setCenter(paneStep3);
             currentMenuButton = selectedMenuButton;
         }
 
         if (selectedMenuButton == feStep4){
             feStep4.getStyleClass().clear();
             feStep4.getStyleClass().add("menuButtonSelected");
-            feMainTitle.setText("FE-STEP4");
+            feMainTitle.setText("FE-Config");
 
-//            feMainViewPane.setCenter(null);
+            if (paneConfig == null){
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(MainController.class.getResource("../view/FEStep3View.fxml"));
+                    paneConfig = loader.load();
+                    paneConfig.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            feMainViewPane.setCenter(paneConfig);
             currentMenuButton = selectedMenuButton;
         }
     }
