@@ -11,11 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 /**
  * Created by YLX on 2018/12/3
@@ -113,10 +110,10 @@ public class MainController {
             if (paneStep1 == null){
                 try {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(MainController.class.getResource("../view/FEStep1View.fxml"));
+                    loader.setLocation(MainController.class.getResource("../view/FE1ParticipleView.fxml"));
                     paneStep1 = loader.load();
                     paneStep1.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
-                    FEStep1Controller controller = loader.getController();
+                    FE1ParticipleController controller = loader.getController();
                     controller.initialize();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -134,10 +131,10 @@ public class MainController {
             if (paneStep2 == null){
                 try {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(MainController.class.getResource("../view/FEStep2View.fxml"));
+                    loader.setLocation(MainController.class.getResource("../view/FE2KeywordsView.fxml"));
                     paneStep2 = loader.load();
                     paneStep2.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
-                    FEStep2Controller controller = loader.getController();
+                    FE2KeywordsController controller = loader.getController();
                     controller.initialize();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -156,10 +153,10 @@ public class MainController {
             if (paneStep3 == null){
                 try {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(MainController.class.getResource("../view/FEStep3View.fxml"));
+                    loader.setLocation(MainController.class.getResource("../view/FE3Doc2vecView.fxml"));
                     paneStep3 = loader.load();
                     paneStep3.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
-                    FEStep3Controller controller = loader.getController();
+                    FE3Doc2vecController controller = loader.getController();
                     controller.initialize();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -179,10 +176,10 @@ public class MainController {
                 try {
                     FXMLLoader loader = new FXMLLoader();
 //                    loader.setResources(ResourceBundle.getBundle("my", Locale.CHINA));
-                    loader.setLocation(MainController.class.getResource("../view/FEStep4View.fxml"));
+                    loader.setLocation(MainController.class.getResource("../view/FE4ConfigView.fxml"));
                     paneConfig = loader.load();
                     paneConfig.setPrefSize(feMainViewPane.getWidth()-60, feMainViewPane.getHeight()-60);
-                    FEStep4Controller controller = loader.getController();
+                    FE4ConfigController controller = loader.getController();
                     controller.initialize();
                 } catch (IOException e) {
                     e.printStackTrace();

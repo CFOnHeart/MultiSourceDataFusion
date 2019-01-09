@@ -1,6 +1,5 @@
 package com.iip.ui.feature_extraction;
 
-import com.iip.ui.feature_extraction.controller.FEStep3Controller;
 import com.iip.ui.feature_extraction.controller.MainController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -9,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -64,7 +62,7 @@ public class Main extends Application {
         // 主程序开始
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("view/FeatureExtractionMainView.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("view/MainView.fxml"));
             Parent root = fxmlLoader.load();
             MainController controller = fxmlLoader.getController();
             controller.initialize();

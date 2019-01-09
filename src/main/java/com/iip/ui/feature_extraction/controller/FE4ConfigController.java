@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FEStep4Controller {
+public class FE4ConfigController {
 
     @FXML
     private TextField databaseName, inputTableStep1, outputTableStep1, inputTableStep2, outputTableStep2,

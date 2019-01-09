@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.FEStep1Controller">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.FE1ParticipleController">
   <children>
     <ListView fx:id="rawDataListView" layoutX="14.0" layoutY="50.0" prefHeight="270.0" prefWidth="972.0" />
     <Separator layoutX="14.0" layoutY="326.0" prefHeight="6.0" prefWidth="972.0" />

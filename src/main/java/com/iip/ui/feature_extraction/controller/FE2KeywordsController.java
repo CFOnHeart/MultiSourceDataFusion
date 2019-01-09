@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FEStep2Controller {
+public class FE2KeywordsController {
 
     @FXML
     private ListView<String> rawDataListView;

@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.FEStep4Controller">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.FE4ConfigController">
   <children>
     <Separator layoutX="13.0" layoutY="478.0" prefHeight="6.0" prefWidth="972.0" />
     <Button layoutX="343.0" layoutY="93.0" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="导入数据" />

@@ -1,8 +1,10 @@
 package com.iip.ui.feature_extraction.controller;
 
 import com.iip.ui.feature_extraction.Main;
+import com.iip.ui.feature_extraction.execute.Doc2vec;
 import com.iip.ui.feature_extraction.execute.Participle;
 import com.iip.ui.feature_extraction.execute.connection.DatabaseOperations;
+import com.iip.ui.feature_extraction.execute.textrank.TextRank;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FEStep1Controller {
+public class FE3Doc2vecController {
 
     @FXML
     private ListView<String> rawDataListView;
@@ -24,9 +26,9 @@ public class FEStep1Controller {
     private ObservableList<String> handledDataList = FXCollections.observableArrayList();
 
     @FXML
-    private Label dbname, dbname_, dataOrigin, dataOutput;
+    private Label dbname, dbname_, dataOrigin, dataOutput, hint;
 
-    private List<String> docs = new ArrayList<String>();
+    public static List<String> docs = new ArrayList<String>();
     private List<String> partedDocs = new ArrayList<String>();
 
     public void initialize(){
@@ -46,7 +48,7 @@ public class FEStep1Controller {
     @FXML
     private void handleDataClicked(MouseEvent event){
         if(partedDocs.size()>0) return;
-        handledDataList.addAll(getPartedDocs(docs));
+        handledDataList.addAll(getKeyedDocs(docs));
         handledDataListView.setItems(handledDataList);
     }
 
@@ -57,7 +59,7 @@ public class FEStep1Controller {
             Main.f_alert_informationDialog("操作失败", "数据库还没链接好!");
             return;
         }
-        DatabaseOperations.write(DatabaseOperations.outputTableNames[0], DatabaseOperations.dataColumn, partedDocs);
+        DatabaseOperations.write(DatabaseOperations.outputTableNames[2], DatabaseOperations.dataColumn, partedDocs);
         DatabaseOperations.print("导出表完成!");
         Main.f_alert_informationDialog("操作成功", "导出表完成!");
     }
@@ -71,19 +73,21 @@ public class FEStep1Controller {
             Main.f_alert_informationDialog("操作失败", "数据库还没链接好!");
             return docs;
         }
-        docs = DatabaseOperations.read(DatabaseOperations.originalDataTables[0], DatabaseOperations.dataColumn);
+        docs = DatabaseOperations.read(DatabaseOperations.originalDataTables[2], DatabaseOperations.dataColumn);
         dbname.setText("数据库: "+DatabaseOperations.DBNAME);
         dbname_.setText("数据库: "+DatabaseOperations.DBNAME);
-        dataOrigin.setText("源数据表格: "+DatabaseOperations.originalDataTables[0]);
-        dataOutput.setText("导出数据表格: "+DatabaseOperations.outputTableNames[0]);
+        dataOrigin.setText("源数据表格: "+DatabaseOperations.originalDataTables[2]);
+        dataOutput.setText("导出数据表格: "+DatabaseOperations.outputTableNames[2]);
         DatabaseOperations.print("导入表完成!");
         Main.f_alert_informationDialog("操作成功", "导入表完成!");
         return docs;
     }
 
-    //分词操作
-    private List<String> getPartedDocs(List<String> docs){
-        partedDocs = Participle.getPartedDocs(docs);
+    //选取关键词操作
+    private List<String> getKeyedDocs(List<String> docs){
+        hint.setText("该操作比较耗时，请稍等......");
+        partedDocs = Doc2vec.getVecDocs(docs, DatabaseOperations.path);
+        hint.setText("操作完成!");
         return partedDocs;
     }
 
