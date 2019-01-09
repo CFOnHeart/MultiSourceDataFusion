@@ -1,91 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane fx:id="feMainViewPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@stylesheet/MainView.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iip.ui.feature_extraction.controller.MainController">
-    <top>
-        <AnchorPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-            <children>
-                <AnchorPane layoutX="-63.0" layoutY="-75.0" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #37BC9B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                            <image>
-                                <Image url="@picture/icon.png" />
-                            </image>
-                        </ImageView>
-                    </children></AnchorPane>
-                <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="database: null" />
-                <Label fx:id="feMainTitle" layoutX="226.0" layoutY="13.0" styleClass="title-font" stylesheets="@stylesheet/MainView.css" text="多源实体表示工具" textFill="#37bc9b"><!--  AnchorPane.leftAnchor="75.0" -->
-                    <font>
-                        <Font name="System Bold" size="28.0" />
-                    </font></Label>
-                <AnchorPane layoutX="940.0" layoutY="-70.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                            <image>
-                                <Image url="@picture/exitButton.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </AnchorPane>
-            </children>
+
+<BorderPane fx:id="feMainViewPane" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@stylesheet/MainView.css" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.MainController">
+  <center>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B3DFA8;">
+      <children>
+        <Label alignment="CENTER" contentDisplay="LEFT" layoutX="56.0" layoutY="26.0" prefHeight="77.0" prefWidth="176.0" text="登录入口" textOverrun="ELLIPSIS">
+          <font>
+            <Font size="25.0" />
+          </font>
+        </Label>
+        <Separator layoutX="82.0" layoutY="81.0" prefHeight="13.0" prefWidth="124.0" />
+        <Pane layoutX="275.0" layoutY="230.0" prefHeight="257.0" prefWidth="399.0" style="-fx-background-color: #5CBB44;" />
+        <TextField fx:id="user" layoutX="420.0" layoutY="276.0" prefHeight="30.0" prefWidth="186.0" promptText="输入用户名" />
+        <PasswordField fx:id="pw" layoutX="420.0" layoutY="337.0" prefHeight="30.0" prefWidth="186.0" promptText="输入密码" />
+        <Label fx:id="un" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="337.0" layoutY="271.0" prefHeight="40.0" prefWidth="83.0" text="用户名:" textFill="WHITE" textOverrun="ELLIPSIS">
+          <font>
+            <Font size="20.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" font="$x1" layoutX="337.0" layoutY="332.0" prefHeight="40.0" prefWidth="71.0" text="密码:" textFill="WHITE" textOverrun="ELLIPSIS" />
+        <Button layoutX="337.0" layoutY="408.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="40.0" prefWidth="271.0" style="-fx-background-color: #37bc9b;" text="登录" textFill="WHITE">
+          <effect>
+            <DropShadow />
+          </effect>
+        </Button>
+      </children>
+    </AnchorPane>
+  </center>
+  <left>
+    <AnchorPane prefHeight="720.0" prefWidth="203.0" styleClass="title-color" BorderPane.alignment="CENTER">
+      <children>
+        <AnchorPane fx:id="feStep1" stylesheets="@stylesheet/MainView.css" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+              <image>
+                <Image url="@picture/connectionConfigMenuButton.png" />
+              </image>
+            </ImageView>
+            <Label font="$x1" layoutX="66.0" layoutY="17.0" mouseTransparent="true" prefWidth="100.0" text="分词" />
+          </children>
         </AnchorPane>
-    </top>
-    <left>
-        <AnchorPane prefHeight="661.0" prefWidth="180.0" styleClass="title-color" stylesheets="@stylesheet/MainView.css" BorderPane.alignment="CENTER">
-            <children>
-                <AnchorPane fx:id="feStep1" layoutX="-70.0" layoutY="-62.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                            <image>
-                                <Image url="@picture/connectionConfigMenuButton.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP1" mouseTransparent="true" />
-                    </children>
-                </AnchorPane>
-
-                <AnchorPane fx:id="feStep2" layoutX="-70.0" layoutY="6.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
-                    <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-51.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                            <image>
-                                <Image url="@picture/infoMenuButton.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP2" mouseTransparent="true" />
-                    </children>
-                </AnchorPane>
-
-                <AnchorPane fx:id="feStep3" layoutY="120.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0">
-                    <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                            <image>
-                                <Image url="@picture/SearchKeyword.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="STEP3" mouseTransparent="true" />
-                    </children>
-                </AnchorPane>
-
-                <AnchorPane fx:id="feStep4" layoutX="-86.0" layoutY="320.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                    <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                            <image>
-                                <Image url="@picture/settingsMenuButton.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="66.0" layoutY="20.0" prefWidth="100.0" text="Config" mouseTransparent="true" />
-                    </children>
-                </AnchorPane>
-            </children>
+        <AnchorPane fx:id="feStep2" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+          <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+              <image>
+                <Image url="@picture/infoMenuButton.png" />
+              </image>
+            </ImageView>
+            <Label fx:id="keyword" font="$x1" layoutX="66.0" layoutY="17.0" mouseTransparent="true" prefWidth="100.0" text="关键词" />
+          </children>
         </AnchorPane>
-    </left>
-    <center>
-        <BorderPane fx:id="feFunctionPane" BorderPane.alignment="CENTER">
-        </BorderPane>
-
-    </center>
+        <AnchorPane fx:id="feStep3" layoutX="0.0" layoutY="120.0" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="203.0">
+          <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+              <image>
+                <Image url="@picture/SearchKeyword.png" />
+              </image>
+            </ImageView>
+            <Label fx:id="vectorize" font="$x1" layoutX="66.0" layoutY="17.0" mouseTransparent="true" prefWidth="100.0" text="向量化" />
+          </children>
+        </AnchorPane>
+        <AnchorPane fx:id="feStep4" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+          <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+              <image>
+                <Image url="@picture/settingsMenuButton.png" />
+              </image>
+            </ImageView>
+            <Label font="$x1" layoutX="66.0" layoutY="17.0" mouseTransparent="true" prefWidth="100.0" text="配置" />
+          </children>
+        </AnchorPane>
+      </children>
+    </AnchorPane>
+  </left>
+  <top>
+    <AnchorPane prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <children>
+        <AnchorPane prefHeight="80.0" prefWidth="203.0" style="-fx-background-color: #37BC9B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+              <image>
+                <Image url="@picture/icon.png" />
+              </image>
+            </ImageView>
+          </children>
+        </AnchorPane>
+        <Label alignment="TOP_LEFT" layoutX="66.0" layoutY="20.0" prefWidth="150.0" text="多极语义提取工具" />
+        <Label fx:id="feMainTitle" stylesheets="@stylesheet/MainView.css" layoutX="226.0" layoutY="13.0" prefHeight="53.0" prefWidth="266.0" styleClass="title-font" text="多极语义提取工具" textFill="#37bc9b">
+          <!--  AnchorPane.leftAnchor="75.0" -->
+          <font>
+            <Font name="System Bold" size="32.0" />
+          </font>
+        </Label>
+        <AnchorPane onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+              <image>
+                <Image url="@picture/exitButton.png" />
+              </image>
+            </ImageView>
+          </children>
+        </AnchorPane>
+        <Separator layoutX="206.0" layoutY="80.0" minHeight="0.0" prefHeight="0.0" prefWidth="980.0" />
+      </children>
+    </AnchorPane>
+  </top>
 </BorderPane>

@@ -90,6 +90,7 @@ public class Doc2vec {
     }
 
     public static List<String> getVecDocs(List<String> docs, String vecsPath){
+        Participle.getPartedDocs(docs);
         List<List<String>> partedDocs = Participle.partedDocs;
         List<String> words = new ArrayList<String>();
         List<String> vecDocs = new ArrayList<String>();

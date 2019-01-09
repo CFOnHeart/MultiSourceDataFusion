@@ -7,18 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.FEStep3Controller">
-    <children>
-        <ListView fx:id="rawDataListView" layoutX="14.0" layoutY="50.0" prefHeight="270.0" prefWidth="972.0" />
-        <Separator layoutX="14.0" layoutY="326.0" prefHeight="6.0" prefWidth="972.0" />
-        <ListView fx:id="handledDataListView" layoutX="13.0" layoutY="371.0" prefHeight="314.9998779296875" prefWidth="972.0" />
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="Load" />
-        <Button layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#handleDataClicked" text="Transfer" />
-        <Label layoutX="142.0" layoutY="18.0" prefWidth="97.0" text="database: d1" />
-        <Label layoutX="142.0" layoutY="341.0" prefWidth="97.0" text="database: d1" />
-        <Label layoutX="296.0" layoutY="17.0" prefWidth="97.0" text="table: t1" />
-        <Label layoutX="296.0" layoutY="341.0" prefWidth="97.0" text="table: t2" />
-        <Button layoutX="499.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#exportDataClicked" text="Export" />
-        <Label layoutX="636.0" layoutY="340.0" prefWidth="97.0" text="database: d1" />
-        <Label layoutX="790.0" layoutY="340.0" prefWidth="97.0" text="table: t3" />
-    </children>
+  <children>
+    <ListView fx:id="rawDataListView" layoutX="14.0" layoutY="50.0" prefHeight="270.0" prefWidth="972.0" />
+    <Separator layoutX="14.0" layoutY="326.0" prefHeight="6.0" prefWidth="972.0" />
+    <ListView fx:id="handledDataListView" layoutX="13.0" layoutY="371.0" prefHeight="314.9998779296875" prefWidth="972.0" />
+    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="加载" />
+    <Button layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#handleDataClicked" text="提取" />
+    <Label fx:id="dbname" layoutX="142.0" layoutY="18.0" prefWidth="138.0" text="数据库: kjb_fe" />
+    <Label fx:id="dataOrigin" layoutX="324.0" layoutY="17.0" prefWidth="199.0" text="源数据表格: data_original" />
+    <Button layoutX="459.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#exportDataClicked" text="导出" />
+    <Label fx:id="dbname_" layoutX="543.0" layoutY="341.0" prefWidth="127.0" text="数据库: database" />
+    <Label fx:id="dataOutput" layoutX="702.0" layoutY="341.0" prefWidth="235.0" text="导出数据表格: data_output" />
+    <Label fx:id="hint" layoutX="120.0" layoutY="340.0" prefWidth="204.0" text=" " />
+  </children>
 </AnchorPane>

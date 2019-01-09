@@ -3,22 +3,61 @@
 <!--  stylesheets="@stylesheet/ConnectionSettingView.css"  -->
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.iip.ui.feature_extraction.controller.FEStep4Controller">
-    <children>
-        <ListView fx:id="rawDataListView" layoutX="14.0" layoutY="50.0" prefHeight="270.0" prefWidth="972.0" />
-        <Separator layoutX="14.0" layoutY="326.0" prefHeight="6.0" prefWidth="972.0" />
-        <ListView fx:id="handledDataListView" layoutX="13.0" layoutY="371.0" prefHeight="314.9998779296875" prefWidth="972.0" />
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="Load" />
-        <Button layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#handleDataClicked" text="Transfer" />
-        <Label layoutX="142.0" layoutY="18.0" prefWidth="97.0" text="database: d1" />
-        <Label layoutX="142.0" layoutY="341.0" prefWidth="97.0" text="database: d1" />
-        <Label layoutX="296.0" layoutY="17.0" prefWidth="97.0" text="table: t1" />
-        <Label layoutX="296.0" layoutY="341.0" prefWidth="97.0" text="table: t2" />
-        <Button layoutX="499.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#exportDataClicked" text="Export" />
-        <Label layoutX="636.0" layoutY="340.0" prefWidth="97.0" text="database: d1" />
-        <Label layoutX="790.0" layoutY="340.0" prefWidth="97.0" text="table: t3" />
-    </children>
+  <children>
+    <Separator layoutX="13.0" layoutY="478.0" prefHeight="6.0" prefWidth="972.0" />
+    <Button layoutX="343.0" layoutY="93.0" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="导入数据" />
+    <Button layoutX="31.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#exit" text="EXIT" />
+    <Label layoutX="31.0" layoutY="91.0" prefHeight="32.0" prefWidth="85.0" text="数据库名:" />
+    <Label fx:id="labelNote" layoutX="142.0" layoutY="499.0" prefWidth="445.0" text="Note: 请先确认源数据表，导出数据表和其它参数再导入数据库!" />
+    <Label layoutX="31.0" layoutY="14.0" prefHeight="32.0" prefWidth="101.0" text="数据配置">
+      <font>
+        <Font size="20.0" />
+      </font>
+    </Label>
+    <TextField fx:id="databaseName" layoutX="116.0" layoutY="94.0" prefWidth="200.0" promptText="database" />
+    <Label layoutX="31.0" layoutY="228.0" prefHeight="32.0" prefWidth="125.0" text="分词数据配置:" />
+    <TextField fx:id="inputTableStep1" layoutX="199.0" layoutY="231.0" prefWidth="200.0" promptText="分词功能的输入表格名" />
+    <TextField fx:id="outputTableStep1" layoutX="443.0" layoutY="231.0" prefWidth="200.0" promptText="分词功能的输出表" />
+    <Separator layoutX="14.0" layoutY="142.0" prefHeight="6.0" prefWidth="972.0" />
+    <Separator layoutX="180.0" layoutY="156.0" orientation="VERTICAL" prefHeight="311.0" />
+    <Separator layoutX="420.0" layoutY="156.0" orientation="VERTICAL" prefHeight="311.0" />
+    <Label layoutX="31.0" layoutY="180.0" prefHeight="32.0" prefWidth="85.0" text="功能模块">
+      <effect>
+        <InnerShadow fx:id="x1">
+          <color>
+            <Color blue="0.094" green="0.600" red="0.000" fx:id="x2" />
+          </color>
+        </InnerShadow>
+      </effect>
+    </Label>
+    <Label effect="$x1" layoutX="199.0" layoutY="180.0" prefHeight="32.0" prefWidth="85.0" text="源数据表" />
+    <Label effect="$x1" layoutX="443.0" layoutY="180.0" prefHeight="32.0" prefWidth="72.0" text="导出数据" />
+    <Label layoutX="31.0" layoutY="283.0" prefHeight="32.0" prefWidth="125.0" text="关键词的配置:" />
+    <TextField fx:id="inputTableStep2" layoutX="199.0" layoutY="286.0" prefWidth="200.0" promptText="关键词功能的输入表名" />
+    <TextField fx:id="outputTableStep2" layoutX="443.0" layoutY="286.0" prefWidth="200.0" promptText="关键词功能的输出" />
+    <Label layoutX="31.0" layoutY="334.0" prefHeight="32.0" prefWidth="125.0" text="向量化的配置:" />
+    <TextField fx:id="inputTableStep3" layoutX="199.0" layoutY="337.0" prefWidth="200.0" promptText="向量化功能的输入表名" />
+    <TextField fx:id="outputTableStep3" layoutX="443.0" layoutY="337.0" prefWidth="200.0" promptText="向量化功能的输出" />
+    <Button layoutX="473.0" layoutY="93.0" mnemonicParsing="false" onMouseClicked="#resetDababase" text="重置" />
+    <Button fx:id="btnConfirm" layoutX="691.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#confirm" prefWidth="150.0" text="确认表格和参数" />
+    <Label layoutX="691.0" layoutY="180.0" prefHeight="32.0" prefWidth="72.0" text="其他参数">
+      <effect>
+        <InnerShadow color="$x2" />
+      </effect>
+    </Label>
+    <Separator layoutX="662.0" layoutY="156.0" orientation="VERTICAL" prefHeight="311.0" />
+    <TextField fx:id="tfK" layoutX="806.0" layoutY="286.0" prefWidth="125.0" promptText="K: 关键词的个数" />
+    <TextField fx:id="tfPath" layoutX="806.0" layoutY="337.0" prefWidth="125.0" promptText="词向量字典路径" />
+    <Separator layoutX="13.0" layoutY="44.0" prefHeight="6.0" prefWidth="972.0" />
+    <Separator layoutX="142.0" layoutY="517.0" prefHeight="6.0" prefWidth="431.0" />
+    <Label fx:id="labelK" layoutX="691.0" layoutY="283.0" prefHeight="32.0" prefWidth="101.0" text="关键词个数:" />
+    <Label fx:id="labelPath" layoutX="691.0" layoutY="334.0" prefHeight="32.0" prefWidth="101.0" text="词典的路径:" />
+  </children>
 </AnchorPane>
