@@ -129,6 +129,24 @@ public class SpaceTimeMainViewController extends RootController implements Initi
         AnchorPane selectedMenuPane = APLoadData;
         changeMenuView(selectedMenuPane);
     }
+
+    public void presentSpaceTimeView(){
+        AnchorPane selectedMenuPane = APSpaceTime;
+        changeMenuView(selectedMenuPane);
+    }
+
+    public void presentPeopleActionView(){
+        currentMenuPane = null;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(SpaceTimeMainViewController.class.getResource("../view/UserAnalyse.fxml"));
+            connectionConfigPane = loader.load();
+            connectionConfigPane.setPrefSize(BPMainViewPane.getWidth()-60, BPMainViewPane.getHeight()-60);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BPMainViewPane.setCenter(connectionConfigPane);
+    }
     @Override
     public void init(){
         // todo
