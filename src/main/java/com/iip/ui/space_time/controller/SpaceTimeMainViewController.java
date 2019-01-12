@@ -51,6 +51,8 @@ public class SpaceTimeMainViewController extends RootController implements Initi
     @FXML
     private Label LblMainTitle;
     @FXML
+    private AnchorPane APHomePage;
+    @FXML
     private AnchorPane APLoadData;
     @FXML
     private AnchorPane APParticiple;
@@ -89,6 +91,11 @@ public class SpaceTimeMainViewController extends RootController implements Initi
 
         changeMenuView(selectedMenuPane);
 
+    }
+
+    @FXML
+    private void backHomePageClicked(){
+        changeMenuView(APHomePage);
     }
 
     public void changeMenuView(AnchorPane selectedMenuPane){
@@ -156,6 +163,8 @@ public class SpaceTimeMainViewController extends RootController implements Initi
         init();
         System.out.println("In SpaceTimeMainViewController initialize");
         menuModules = new ArrayList<MenuModule>();
+        // 加载主页界面
+        menuModules.add(new MenuModule(APHomePage, "../view/HomePage.fxml", "Framework Show", "HomePageController"));
         // 加载数据界面
         menuModules.add(new MenuModule(APLoadData, "../view/LoadDataView.fxml", "Load Data", "LoadDataViewController"));
         // 分词界面
@@ -166,6 +175,8 @@ public class SpaceTimeMainViewController extends RootController implements Initi
         menuModules.add(new MenuModule(APSpaceTime, "../view/SpaceTimeView.fxml", "Space Time", "SpaceTimeViewController"));
         // 设置界面
         menuModules.add(new MenuModule(APSetting, "../view/SettingView.fxml", "Setting", "SettingViewController"));
+
+        changeMenuView(APHomePage);
     }
 
 }
