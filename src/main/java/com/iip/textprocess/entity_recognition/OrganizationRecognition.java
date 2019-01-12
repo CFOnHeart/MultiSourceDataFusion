@@ -28,20 +28,25 @@ public class OrganizationRecognition {
 //        }
         String doc = "济南杨铭宇餐饮管理有限公司是由杨先生创办的餐饮企业，晚上九点去吃饭，2008年5月3日北京今天很热";
         List<String> orgs = getOrganization(doc);
-        for(String org : orgs){
-            System.out.println(org);
-        }
+        System.out.println(orgs);
+//        for(String org : orgs){
+//            System.out.println(org);
+//        }
 //
     }
     // 将字符串中的所有机构或者地点实体提取出来(暂时先将整个文件所有的数据读到一起，作为一整个字符串)
     public static List<String> getOrganization(String sentence){
         Segment segment = HanLP.newSegment().enableOrganizationRecognize(true);
+        /**
+         * hanlp机构名识别可参考 http://hanlp.linrunsoft.com
+         */
         List<Term> termList = segment.seg(sentence);
         List<String> nt = new ArrayList<String>();
 
         for (Term term : termList){
 //            System.out.println("debug: "+term.nature+term.word);
-            if(term.nature == Nature.valueOf("nt")){
+//           System.out.println(term.nature.toString());
+            if(term.nature.toString() =="nt"&& !term.word.endsWith("点")){
                 nt.add(term.word);
             }
         }

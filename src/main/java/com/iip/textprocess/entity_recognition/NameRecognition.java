@@ -28,11 +28,13 @@ public class NameRecognition {
     // 将字符串中的所有人名实体提取出来(暂时先将整个文件所有的数据读到一起，作为一整个字符串)
     public static List<String> getName(String s){
         Segment segment = HanLP.newSegment().enableNameRecognize(true);
+        /**
+         * hanlp人名识别可参考 http://hanlp.linrunsoft.com
+         */
         List<Term> termList = segment.seg(s);
         List<String> nr = new ArrayList<String>();
-
         for(Term term : termList){
-            if (term.nature == Nature.valueOf("nr") || term.nature == Nature.valueOf("nrf"))
+            if (term.toString() =="nr" || term.toString() == "nrf")
                 nr.add(term.word);
         }
 

@@ -28,7 +28,7 @@ public class Participle {
         List<Term> termList = participleHanNlp(doc);
         for(Term term : termList){
             Nature nature = term.nature; // 词性
-            words.add(new Word(term.word, nature.name()));
+            words.add(new Word(term.word, nature.toString()));
         }
         return words;
     }

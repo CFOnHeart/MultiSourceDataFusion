@@ -48,15 +48,16 @@ public class SingleDocParticiple {
     }
 
     public void setText(String text) {
-        int index = text.indexOf(')');
-        this.text = text.substring(index+1);
-        this.dateStr = text.substring(1, index);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try{
-            date = simpleDateFormat.parse(dateStr);
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
+//        int index = text.indexOf(')');
+//        this.text = text.substring(index+1);
+//        this.dateStr = text.substring(1, index);
+//        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        try{
+//            date = simpleDateFormat.parse(dateStr);
+//        }catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+          this.text=text;
     }
 
     public String getParticipleResult() {
@@ -97,11 +98,12 @@ public class SingleDocParticiple {
     }
 
     // for test
-    public static void main(String [] args){
-        SingleDocParticiple item = new SingleDocParticiple();
-        item.setId(1);
-        item.setText("济南杨铭宇餐饮管理有限公司是由杨先生创办的餐饮企业，晚上九点去吃饭，2008年5月3日北京今天很热");
-        item.participleHanlp();
-        System.out.println(item.participleResult);
-    }
+//    public static void main(String [] args){
+//        SingleDocParticiple item = new SingleDocParticiple();
+//        item.setId(1);
+//        item.setText("济南杨铭宇餐饮管理有限公司是由杨先生创办的餐饮企业，晚上九点去吃饭，2008年5月3日北京今天很热)");
+//        System.out.println(item.text);
+//        item.participleHanlp();
+//        System.out.println(item.participleResult);
+//    }
 }

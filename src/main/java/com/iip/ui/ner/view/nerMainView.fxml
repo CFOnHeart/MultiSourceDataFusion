@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="BPMainViewPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@stylesheet/nerMainView.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iip.ui.ner.controller.nerMainViewController">
+    <top>
+        <AnchorPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane layoutX="-63.0" layoutY="-75.0" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #37BC9B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/fangdajing.png" />
+                            </image>
+                        </ImageView>
+                    </children></AnchorPane>
+                <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="数据库" />
+                <Label fx:id="LblMainTitle" layoutX="206.0" layoutY="13.0" styleClass="title-font" stylesheets="@stylesheet/nerMainView.css" text="命名实体识别工具" textFill="#37bc9b"><!--  AnchorPane.leftAnchor="75.0" -->
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font></Label>
+                <AnchorPane layoutX="940.0" layoutY="-70.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-70.0" layoutY="-45.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/exitButton.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </top>
+    <left>
+        <AnchorPane prefHeight="661.0" prefWidth="160.0" styleClass="title-color" stylesheets="@stylesheet/nerMainView.css" BorderPane.alignment="CENTER">
+            <children>
+                <!-- 加载数据按键模块 -->
+                <AnchorPane fx:id="APLoadData" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/data.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="加载数据" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
+                <!-- 中文分词展示模块 -->
+                <AnchorPane fx:id="APParticiple" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/computer.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="中文分词" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
+                <!-- 词性标注模块 -->
+                <AnchorPane fx:id="APPos" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="120.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/branch.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="词性标注" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
+                <!-- 人名识别模块 -->
+                <AnchorPane fx:id="APPersonNer" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="180.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/ding.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="人名识别" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
+                <!-- 地名识别模块模块 -->
+                <AnchorPane fx:id="APLocationNer" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="240.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/doc.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="地名识别" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
+                <!-- 机构名识别模块 -->
+                <AnchorPane fx:id="APOrganizationNer" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="300.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/jiugongge.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="机构名识别" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
+                <!-- 设置模块 -->
+                <AnchorPane fx:id="APSetting" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                            <image>
+                                <Image url="@picture/setting.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="设置" mouseTransparent="true" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <BorderPane fx:id="BPMainViewPaneCenter" BorderPane.alignment="CENTER">
+
+            <AnchorPane fx:id="APliuchengtu" prefHeight="60.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <Label fx:id="Lblliuchengtu" layoutX="20.0" layoutY="10.0"   text="命名实体识别流程如下：" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="80.0"
+                       textFill="#000000">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font></Label>
+                <children>
+                    <ImageView fitHeight="800.0" fitWidth="1000.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="120.0">
+                        <image>
+                            <Image url="@picture/hmm处理流程图.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </AnchorPane>
+        </BorderPane>
+
+    </center>
+</BorderPane>
+
+

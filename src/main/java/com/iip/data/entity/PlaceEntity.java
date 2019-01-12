@@ -28,12 +28,14 @@ public class PlaceEntity extends Entity{
 
     public static List<Entity> entityRecognition(String sentence){
         Segment segment = HanLP.newSegment().enablePlaceRecognize(true);
-
+/**
+ * hanlp地名识别可参考 http://hanlp.linrunsoft.com
+ */
         List<Term> termList = segment.seg(sentence);
         System.out.println(termList);
         List<Entity> entities = new ArrayList<>();
         for (Term term: termList){
-            if ( term.nature.name().equals("ns") )
+            if ( term.nature.toString().equals("ns") )
                 entities.add( new PlaceEntity(term.word) );
         }
         return entities;

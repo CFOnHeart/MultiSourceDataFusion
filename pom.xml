@@ -102,7 +102,7 @@
         <dependency>
             <groupId>com.hankcs</groupId>
             <artifactId>hanlp</artifactId>
-            <version>portable-1.5.4</version>
+            <version>portable-1.7.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.python/jython -->
         <dependency>
