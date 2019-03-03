@@ -5,6 +5,7 @@ package com.iip.textprocess.util;
  * @Date 2018/1/31 下午9:34
  */
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashSet;
@@ -27,7 +28,7 @@ public class FileUtil {
     }
 
     public static Set<String> stopWords = new HashSet<String>();
-    public static String stopWordsPath = "src/main/com/iip/java/textprocess/resource/stopwords";
+    public static String stopWordsPath = "src/main/java/com/iip/textprocess/resource/stopwords";
     // 获得某个路径下的所有文件，包括所有子文件下的文件，递归查找，使用方法就是getAllFilePath(new ArrayList<>() , dir_path)
     public static List<File> getAllFilePath(List<File> files , String dirPath){
         File file = new File(dirPath);  //File can represent as file or directory

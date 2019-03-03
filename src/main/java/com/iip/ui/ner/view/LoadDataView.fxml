@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iip.ui.ner.controller.LoadDataViewController">
+    <children>
+        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="686.0" prefWidth="986.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <Label layoutX="450.0" layoutY="21.0" text="将要导入的数据源" />
+                        <ListView fx:id="LVRawDataListView" AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="10.0" prefHeight="220.0" prefWidth="972.0" />
+                        <Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" prefWidth="120" mnemonicParsing="false" onMouseClicked="#loadDataByFileClicked" text="文件导入数据源" />
+                        <Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="160.0" prefWidth="120" mnemonicParsing="false" onMouseClicked="#loadDataByMysqlClicked" text="Mysql导入数据源" />
+                        <Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0" prefWidth="100" mnemonicParsing="false" onMouseClicked="#replaceDataClicked" text="替换数据源" />
+                        <Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="420.0" prefWidth="100" mnemonicParsing="false" onMouseClicked="#appendDataClicked" text="附加数据源" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <Label layoutX="450.0" layoutY="21.0" text="目前存在的数据源" />
+                        <ListView fx:id="LVHandledDataListView" AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="10.0" prefHeight="220.0" prefWidth="972.0" />
+                        <!--<Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" prefWidth="120" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="文件导入数据源" />-->
+                        <!--<Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="160.0" prefWidth="120" mnemonicParsing="false" onMouseClicked="#loadDataClicked" text="Mysql导入数据源" />-->
+                        <!--<Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0" prefWidth="100" mnemonicParsing="false" onMouseClicked="#replaceDataClicked" text="替换数据源" />-->
+                        <!--<Button AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="420.0" prefWidth="100" mnemonicParsing="false" onMouseClicked="#appendDataClicked" text="附加数据源" />-->
+
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

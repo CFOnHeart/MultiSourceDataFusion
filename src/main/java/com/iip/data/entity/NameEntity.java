@@ -27,12 +27,14 @@ public class NameEntity extends Entity{
         segment.enableNameRecognize(true);
         segment.enableTranslatedNameRecognize(true);
         segment.enableJapaneseNameRecognize(true);
-
+        /**
+        * hanlp人名识别可参考 http://hanlp.linrunsoft.com
+        */
         List<Term> termList = segment.seg(sentence);
         System.out.println(termList);
         List<Entity> entities = new ArrayList<>();
         for (Term term: termList){
-            if ( term.nature.name().contains("nr") )
+            if ( term.nature.toString().contains("nr") )
                 entities.add( new NameEntity(term.word) );
         }
         return entities;

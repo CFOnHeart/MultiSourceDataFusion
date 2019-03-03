@@ -22,15 +22,15 @@ public class SingleDocParticiple {
     private List<Word> words = new ArrayList<>();
 
     // 将words转化为字符串的表达形式，方便转换给participleResult
-    public String toString(){
+    public String toString() {
         String res = "";
-        for(Word word: words){
-            res += word.word+"("+word.tag+");";
+        for (Word word : words) {
+            res += word.word + "(" + word.tag + ");";
         }
         return res;
     }
 
-    public void participleHanlp(){
+    public void participleHanlp() {
         words = Participle.participle(text);
         participleResult = toString();
     }
@@ -49,12 +49,12 @@ public class SingleDocParticiple {
 
     public void setText(String text) {
         int index = text.indexOf(')');
-        this.text = text.substring(index+1);
+        this.text = text.substring(index + 1);
         this.dateStr = text.substring(1, index);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try{
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
             date = simpleDateFormat.parse(dateStr);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -72,7 +72,7 @@ public class SingleDocParticiple {
         return words;
     }
 
-    public void setWords(int index, Word word){
+    public void setWords(int index, Word word) {
         words.set(index, word);
     }
 
@@ -97,7 +97,7 @@ public class SingleDocParticiple {
     }
 
     // for test
-    public static void main(String [] args){
+    public static void main(String[] args) {
         SingleDocParticiple item = new SingleDocParticiple();
         item.setId(1);
         item.setText("济南杨铭宇餐饮管理有限公司是由杨先生创办的餐饮企业，晚上九点去吃饭，2008年5月3日北京今天很热");
