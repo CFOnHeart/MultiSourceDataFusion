@@ -1,0 +1,73 @@
+.title-color{
+    -fx-background-color: #37BC9B;
+}
+
+.title-font{
+    -fx-font-weight: bold;
+    -fx-font-size: 28px;
+    -fx-text-fill: #37BC9B;
+}
+
+.subtitle-font{
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+    -fx-text-fill: #37BC9B;
+}
+
+.body-font{
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-fill: #000000;
+}
+
+.body-font-mini{
+    -fx-font-weight: lighter;
+    -fx-font-size: 15px;
+    -fx-text-fill: #000000;
+}
+
+.hyperlink-font{
+    -fx-font-weight: lighter;
+    -fx-font-size: 20px;
+    -fx-text-fill: #37BC9B;
+}
+
+.database-settings-button{
+    -fx-graphic: url("../picture/menuButton_connectionConfig.png");
+    -fx-scale-x: inherit;
+    -fx-scale-y: inherit;
+    -fx-background-color: transparent;
+}
+
+.add-button{
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-fill: #37BC9B;
+    -fx-background-color: transparent;
+}
+
+.listView{
+    -fx-border-width: 1px;
+    -fx-background-color: #F4F4F4;
+}
+
+.menuButton{
+    -fx-background-color: #37BC9B;
+}
+
+.menuButtonSelected{
+    -fx-background-color: #48CFAD;
+}
+
+.search-button{
+    -fx-background-image: url("../picture/searchKeywordBtn.png");
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
+    -fx-background-color: #37BC9B;
+}
+
+.text-field {
+    -fx-background-color: #DDDDDD;
+    -fx-accent: #DDDDDD;
+}
