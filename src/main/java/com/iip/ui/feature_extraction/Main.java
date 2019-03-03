@@ -1,12 +1,13 @@
 package com.iip.ui.feature_extraction;
 
+import com.iip.ui.feature_extraction.controller.MainController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -60,7 +61,11 @@ public class Main extends Application {
     public void start(final Stage primaryStage) throws Exception {
         // 主程序开始
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("view/FeatureExtractionMainView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("view/MainView.fxml"));
+            Parent root = fxmlLoader.load();
+            MainController controller = fxmlLoader.getController();
+            controller.initialize();
             // 设定stage可以通过鼠标拖动到屏幕的其他地方
             root.setOnMousePressed(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
@@ -91,6 +96,15 @@ public class Main extends Application {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public static void f_alert_informationDialog(String p_header, String p_message){
+        Alert _alert = new Alert(Alert.AlertType.INFORMATION);
+        _alert.setTitle("信息");
+        _alert.setHeaderText(p_header);
+        _alert.setContentText(p_message);
+//        _alert.initOwner(d_stage);
+        _alert.show();
     }
 
 
