@@ -15,7 +15,9 @@
          </font>
       </Label>
       <TreeView fx:id="TrVEntityShow" prefHeight="270.0" prefWidth="986.0" style="-fx-background-color: #DDDDDD;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="50.0" />
-      <Button fx:id="BtnMapInfo" onAction="#mapInfoClicked" mnemonicParsing="false" text="打印选中项地图信息" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="330.0" />
+      <Button fx:id="BtnMapInfo" mnemonicParsing="false" onAction="#mapInfoClicked" text="打印选中项地图信息" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="330.0" />
+      <Button fx:id="BtnSelectedPeopleAnalyse" mnemonicParsing="false" onAction="#mapSelectedPeopleAnalyseClicked" text="分析选中人信息" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="330.0" />
+      <Button fx:id="BtnAllPeopleAnalyse" mnemonicParsing="false" onAction="#mapAllPeopleAnalyseClicked" text="分析所有人信息" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="330.0" />
 
       <WebView fx:id="WVChinaMap" prefHeight="300.0" prefWidth="986.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="380.0">
       </WebView>

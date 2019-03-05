@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iip.ui.space_time.controller.HomePageController">
+   <children>
+      <Label text="时空数据分析框架流程展示" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="20" layoutY="50" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="100.0">
+         <image>
+            <Image url="@picture/framework.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

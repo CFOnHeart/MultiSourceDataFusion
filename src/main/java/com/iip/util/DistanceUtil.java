@@ -88,18 +88,31 @@ public class DistanceUtil {
 		}
 	}
 
+	// 计算的是距离的公里数
 	public static double calculateDistance(String address1, String address2)
 	{
 		double[] loc1 = getLatitude(address1);
 		double[] loc2 = getLatitude(address2);
-		double Lat1 = rad(loc1[1]);
-		double Lat2 = rad(loc2[1]);
+//		double Lat1 = rad(loc1[1]);
+//		double Lat2 = rad(loc2[1]);
+//		double a = Lat1 - Lat2;
+//		double b = rad(loc1[0]) - rad(loc2[0]);
+//		double s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) + Math.cos(Lat1) * Math.cos(Lat2) * Math.pow(Math.sin(b/2),2)));
+//		s = s * 6378137.0;
+//		s = Math.round(s * 10000d) / 10000d;
+//		return s;
+		return calculateDistance(loc1[0], loc1[1], loc2[0], loc2[1]);
+	}
+
+	// 计算的是距离的公里数
+	public static double calculateDistance(double lng1, double lat1, double lng2, double lat2){
+		double Lat1 = rad(lat1) , Lat2 = rad(lat2);
 		double a = Lat1 - Lat2;
-		double b = rad(loc1[0]) - rad(loc2[0]);
+		double b = rad(lng1) - rad(lng2);
 		double s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) + Math.cos(Lat1) * Math.cos(Lat2) * Math.pow(Math.sin(b/2),2)));
 		s = s * 6378137.0;
 		s = Math.round(s * 10000d) / 10000d;
-		return s;
+		return s / 1000;
 	}
 
 	private static double rad(double d)

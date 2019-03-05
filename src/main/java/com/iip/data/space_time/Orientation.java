@@ -1,5 +1,7 @@
 package com.iip.data.space_time;
 
+import com.iip.util.DistanceUtil;
+
 import java.util.Date;
 
 /**
@@ -9,7 +11,13 @@ import java.util.Date;
 public class Orientation implements Comparable<Orientation>{
     public Orientation(){}
 
-    public Orientation(String place, Date date){ this.date=date; this.place=place; }
+    public Orientation(String place, Date date){
+        this.date=date; this.place=place;
+        double temp [] = DistanceUtil.getLatitude(this.place);
+        this.lng = temp[0];
+        this.lat = temp[1];
+
+    }
 
     public Orientation(String place, Date date, double lng, double lat){
         this.date=date; this.place=place;

@@ -48,7 +48,8 @@ public class SpaceTimeData {
     public static ObservableList<SingleDocParticiple> participleItems = FXCollections.observableArrayList();
     public static ObservableList<SingleDocEntity> entityItems = FXCollections.observableArrayList();
     public static List<PeopleOrientation> peopleOrientations = new ArrayList<>();
-
+    public static int currentSelectedPeopleId = -1;  // SpaceTimeView界面选中的人的id
+    public static ObservableList<SinglePeopleAction> peopleActions = FXCollections.observableArrayList(); // 用户行为展示界面的表格对应的数据结构
 
     public static void
         entityItemsToPeopleOrientations(){

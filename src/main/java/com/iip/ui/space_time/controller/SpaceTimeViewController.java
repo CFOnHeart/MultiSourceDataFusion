@@ -2,8 +2,10 @@ package com.iip.ui.space_time.controller;
 
 import com.iip.data.space_time.Orientation;
 import com.iip.data.space_time.PeopleOrientation;
+import com.iip.data.space_time.SinglePeopleAction;
 import com.iip.data.space_time.SpaceTimeData;
 import com.iip.util.DistanceUtil;
+import com.iip.util.PeopleActionAnalyse;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker.State;
@@ -124,11 +126,11 @@ public class SpaceTimeViewController extends RootController implements Initializ
                 Object loc = item.getChildren().get(i);
                 String temp = ((TreeItem)loc).getValue().toString();
                 String [] vals = temp.split(";");
-                double [] pos = DistanceUtil.getLatitude(vals[0]);
-                SpaceTimeData.peopleOrientations.get(id)
-                        .getOrientations().get(i).setLng(pos[0]);
-                SpaceTimeData.peopleOrientations.get(id)
-                        .getOrientations().get(i).setLat(pos[1]);
+//                double [] pos = DistanceUtil.getLatitude(vals[0]);
+//                SpaceTimeData.peopleOrientations.get(id)
+//                        .getOrientations().get(i).setLng(pos[0]);
+//                SpaceTimeData.peopleOrientations.get(id)
+//                        .getOrientations().get(i).setLat(pos[1]);
 
                 orientations.add( SpaceTimeData.peopleOrientations.get(id)
                         .getOrientations().get(i) );
@@ -154,6 +156,68 @@ public class SpaceTimeViewController extends RootController implements Initializ
     public void mapInfoClicked(){
 //        System.out.println("here");
         showMapInfoView();
+    }
+
+    boolean isSelectPeople(TreeItem item){
+        return item.getParent().getParent().getValue().toString().equals("人名总览") == true;
+    }
+
+    @FXML
+    public void mapSelectedPeopleAnalyseClicked(){
+        TreeItem item = (TreeItem)TrVEntityShow.getSelectionModel().getSelectedItem();
+        if ( item.getParent().getValue().toString().equals("人名总览") == true ) {
+
+            // 获得这个人的id和名字
+            int id = Integer.valueOf(item.getValue().toString().split("[.]")[0]) - 1;
+            String name = item.getValue().toString().split("[.]")[1];
+            SpaceTimeData.currentSelectedPeopleId = id;
+
+            System.out.println(
+                    PeopleActionAnalyse.financialSituationLevel(
+                            SpaceTimeData.peopleOrientations.get(id))
+            );
+            // 更新作为后面展示界面的表格数据
+            SpaceTimeData.peopleActions.clear();
+
+            SpaceTimeData.peopleActions.add(
+                    new SinglePeopleAction(
+                            id+1,
+                            name,
+                            SpaceTimeData.peopleOrientations.get(id).throughDays(),
+                            SpaceTimeData.peopleOrientations.get(id).allDistance(),
+                            PeopleActionAnalyse.financialSituationLevel(SpaceTimeData.peopleOrientations.get(id))
+                    ));
+            SpaceTimeMainViewController controller =
+                    (SpaceTimeMainViewController)Context.controllers.get("SpaceTimeMainViewController");
+            controller.presentPeopleActionView();
+        }
+        else{
+            Alert information = new Alert(Alert.AlertType.WARNING,"您在列表中选中的并不是人名，请正确选中后再点击该按钮");
+            information.setTitle("Selected error"); //设置标题，不设置默认标题为本地语言的information
+            information.setHeaderText("Warning"); //设置头标题，默认标题为本地语言的information
+            information.showAndWait(); //显示弹窗，同时后续代码等挂起
+        }
+    }
+
+    @FXML
+    public void mapAllPeopleAnalyseClicked(){
+        SpaceTimeData.peopleActions.clear();
+        for (int i=0 ; i<SpaceTimeData.peopleOrientations.size() ; i++) {
+            int id = i;
+            String name = SpaceTimeData.peopleOrientations.get(i).getName();
+            // 更新作为后面展示界面的表格数据
+            SpaceTimeData.peopleActions.add(
+                    new SinglePeopleAction(
+                            id+1,
+                            name,
+                            SpaceTimeData.peopleOrientations.get(id).throughDays(),
+                            SpaceTimeData.peopleOrientations.get(id).allDistance(),
+                            PeopleActionAnalyse.financialSituationLevel(SpaceTimeData.peopleOrientations.get(id))
+                    ));
+        }
+        SpaceTimeMainViewController controller =
+                (SpaceTimeMainViewController) Context.controllers.get("SpaceTimeMainViewController");
+        controller.presentPeopleActionView();
     }
 
     @Override
