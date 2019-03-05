@@ -56,7 +56,7 @@
                             <Image url="@picture/infoMenuButton.png" />
                         </image>
                     </ImageView>
-                    <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="Paticiple" mouseTransparent="true" />
+                    <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="Participle" mouseTransparent="true" />
                 </children>
             </AnchorPane>
             <!-- 实体展示模块 -->
@@ -75,23 +75,23 @@
                 <children>
                     <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                         <image>
-                            <Image url="@picture/SearchKeyword.png" />
+                            <Image url="@picture/settingsMenuButton.png" />
                         </image>
                     </ImageView>
                     <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="Space Time" mouseTransparent="true" />
                 </children>
             </AnchorPane>
             <!-- 设置模块 -->
-            <AnchorPane fx:id="APSetting" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                <children>
-                    <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                        <image>
-                            <Image url="@picture/settingsMenuButton.png" />
-                        </image>
-                    </ImageView>
-                    <Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="Setting" mouseTransparent="true" />
-                </children>
-            </AnchorPane>
+            <!--<AnchorPane fx:id="APSetting" onMouseClicked="#menuButtonClicked" prefHeight="60.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">-->
+                <!--<children>-->
+                    <!--<ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">-->
+                        <!--<image>-->
+                            <!--<Image url="@picture/settingsMenuButton.png" />-->
+                        <!--</image>-->
+                    <!--</ImageView>-->
+                    <!--<Label layoutX="60.0" layoutY="20.0" prefWidth="100.0" text="Setting" mouseTransparent="true" />-->
+                <!--</children>-->
+            <!--</AnchorPane>-->
         </children>
     </AnchorPane>
 </left>

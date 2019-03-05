@@ -19,12 +19,13 @@
         <columns>
             <TableColumn fx:id="TCUserId" prefWidth="100.0" text="用户Id" />
             <TableColumn fx:id="TCUserName" prefWidth="100.0" text="用户姓名" />
-            <TableColumn fx:id="TCUserTravelTime" prefWidth="150.0" text="用户旅行周期" />
-            <TableColumn fx:id="TCUserTravelDis" prefWidth="150.0" text="用户旅行距离" />
+            <TableColumn fx:id="TCUserTravelTime" prefWidth="150.0" text="用户旅行周期(天)" />
+            <TableColumn fx:id="TCUserTravelDis" prefWidth="150.0" text="用户旅行距离(km)" />
             <TableColumn fx:id="TCUserLevelPredict" prefWidth="150.0" text="用户经济水平估计" />
         </columns>
         </TableView>
-      <Button fx:id="BtnBack" onAction="#backSpaceTimeClicked" mnemonicParsing="false" text="退回" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="50.0" />
+      <Button fx:id="BtnBack" mnemonicParsing="false" onAction="#backSpaceTimeClicked" text="退回" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="50.0" />
+      <PieChart fx:id="PCUserAction" prefHeight="400" prefWidth="400" title="User Financial Situation" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="350.0" />
 
 
     </children>

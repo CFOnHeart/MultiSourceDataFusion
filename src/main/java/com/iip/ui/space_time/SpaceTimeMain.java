@@ -29,36 +29,7 @@ public class SpaceTimeMain extends Application {
         xOffset = 0.0;
         yOffset = 0.0;
 
-//        // 初始化连接池 - 这句话不要删掉
-//        ConnectionPool.getInstance();
-//        // 初始化数据服务
-//        DataService.getInstance();
-//
-//        // test - add SourceSeverConnection
-//        ConnectionConfigBean connectionConfigBean = new ConnectionConfigBean();
-//        connectionConfigBean.setPort("3306");
-//        connectionConfigBean.setUsername("root");
-////        connectionConfigBean.setPassword("root");
-//        connectionConfigBean.setNickName("education-system");
-//        connectionConfigBean.setHostIP("127.0.0.1");
-////        connectionConfigBean.setHostIP("114.212.83.171");
-//        connectionConfigBean.setDriver(DriverType.MYSQL);
-//        connectionConfigBean.setTargetDB(false);
-//        connectionConfigBean.setName("education_system");
-//        ConnectionPool.getInstance().getSourceConnections().put("education-system", new ServerConnection(connectionConfigBean));
-//        for (String dbName: ConnectionPool.getInstance().getSourceConnections().keySet()){
-//            System.out.println("DBNAME:" + dbName);
-//            System.out.println("TABLES:");
-//            for (String tableName: ConnectionPool.getInstance().getSourceConnections().get(dbName).getTables().keySet()
-//                    ) {
-//                System.out.print(tableName + " :");
-//                for (String fieldName: ConnectionPool.getInstance().getSourceConnections().get(dbName).getTables().get(tableName).getFields().keySet()
-//                        ) {
-//                    System.out.print(" " + fieldName);
-//                }
-//                System.out.print("\n");
-//            }
-//        }
+
     }
 
     @Override
